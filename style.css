@@ -46,7 +46,9 @@ img{
   display:block;
 }
 
-/* NAVBAR */
+/* =========================================
+   NAVBAR
+========================================= */
 
 .navbar{
   position:sticky;
@@ -85,6 +87,7 @@ img{
 .navbar nav{
   display:flex;
   gap:8px;
+  align-items:center;
 }
 
 .navbar nav a{
@@ -105,6 +108,34 @@ img{
   color:white;
 }
 
+/* SEARCH NAV BUTTON */
+
+.nav-search-button{
+  padding:10px 14px;
+  border:none;
+  border-radius:8px;
+  background:transparent;
+  color:var(--text-soft);
+  font-family:inherit;
+  font-size:inherit;
+  font-weight:600;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  transition:.3s;
+}
+
+.nav-search-button:hover{
+  background:rgba(0,207,200,.15);
+  color:var(--turquoise);
+}
+
+.nav-search-button svg{
+  width:18px;
+  height:18px;
+}
+
 .menu-button{
   display:none;
   border:none;
@@ -114,7 +145,204 @@ img{
   cursor:pointer;
 }
 
-/* HERO */
+/* =========================================
+   SEARCH OVERLAY
+========================================= */
+
+.search-panel{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+
+  display:none;
+
+  align-items:flex-start;
+  justify-content:center;
+
+  padding:100px 20px 40px;
+
+  background:rgba(1,12,25,.82);
+  backdrop-filter:blur(12px);
+}
+
+.search-panel.active{
+  display:flex;
+}
+
+.search-container{
+  position:relative;
+
+  width:100%;
+  max-width:850px;
+
+  padding:42px;
+
+  background:linear-gradient(
+    145deg,
+    #082B47,
+    #041A30
+  );
+
+  border:1px solid var(--turquoise);
+  border-radius:22px;
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.45),
+    0 0 30px rgba(0,207,200,.12);
+}
+
+.search-label{
+  color:var(--turquoise);
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.search-container h2{
+  margin:8px 0;
+  color:var(--turquoise-light);
+  font-size:38px;
+}
+
+.search-container > p{
+  color:var(--text-soft);
+  margin-bottom:25px;
+}
+
+.close-search{
+  position:absolute;
+  top:15px;
+  right:20px;
+
+  width:42px;
+  height:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:1px solid var(--border);
+  border-radius:50%;
+
+  background:rgba(0,207,200,.08);
+  color:var(--turquoise);
+
+  font-size:28px;
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.close-search:hover{
+  background:var(--turquoise);
+  color:var(--blue-darkest);
+  transform:rotate(90deg);
+}
+
+.search-box{
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  padding:0 18px;
+
+  background:#031A2E;
+
+  border:2px solid var(--border);
+  border-radius:14px;
+
+  transition:.3s;
+}
+
+.search-box:focus-within{
+  border-color:var(--turquoise);
+  box-shadow:0 0 20px rgba(0,207,200,.12);
+}
+
+.search-box svg{
+  width:22px;
+  height:22px;
+  color:var(--turquoise);
+  flex-shrink:0;
+}
+
+.search-box input{
+  width:100%;
+
+  padding:18px 5px;
+
+  border:none;
+  outline:none;
+
+  background:transparent;
+
+  color:var(--text);
+
+  font-family:inherit;
+  font-size:17px;
+}
+
+.search-box input::placeholder{
+  color:#6EADB4;
+}
+
+#searchResults{
+  max-height:430px;
+  overflow-y:auto;
+  margin-top:18px;
+}
+
+.search-result{
+  margin-top:12px;
+  padding:18px 20px;
+
+  background:linear-gradient(
+    145deg,
+    rgba(8,43,71,.95),
+    rgba(6,38,65,.95)
+  );
+
+  border:1px solid var(--border);
+  border-left:4px solid var(--turquoise);
+
+  border-radius:12px;
+
+  transition:.25s;
+}
+
+.search-result:hover{
+  border-color:var(--turquoise);
+  transform:translateX(3px);
+}
+
+.search-result h3{
+  color:var(--turquoise-light);
+  margin-bottom:5px;
+}
+
+.search-result p{
+  color:var(--text-soft);
+  margin-bottom:8px;
+}
+
+.search-result a{
+  color:var(--turquoise);
+  font-weight:bold;
+}
+
+.search-result a:hover{
+  color:var(--turquoise-light);
+}
+
+.search-no-results{
+  padding:30px;
+  text-align:center;
+  color:var(--text-soft);
+}
+
+/* =========================================
+   HERO
+========================================= */
 
 .hero{
   min-height:620px;
@@ -161,7 +389,9 @@ img{
   max-width:700px;
 }
 
-/* BUTTONS */
+/* =========================================
+   BUTTONS
+========================================= */
 
 .hero-buttons{
   display:flex;
@@ -199,7 +429,9 @@ img{
   color:white;
 }
 
-/* GENERAL */
+/* =========================================
+   GENERAL
+========================================= */
 
 .section{
   padding:90px 7%;
@@ -228,7 +460,9 @@ img{
   color:var(--text-soft);
 }
 
-/* CARDS */
+/* =========================================
+   CARDS
+========================================= */
 
 .flag-card,
 .symbol-card,
@@ -275,7 +509,9 @@ img{
   color:var(--text-soft);
 }
 
-/* ABOUT */
+/* =========================================
+   ABOUT
+========================================= */
 
 .nation-grid{
   display:grid;
@@ -300,7 +536,9 @@ img{
   background:#052748;
 }
 
-/* QUICK INFO */
+/* =========================================
+   QUICK INFO
+========================================= */
 
 .quick-info{
   padding:35px 7%;
@@ -335,7 +573,9 @@ img{
   color:var(--text-soft);
 }
 
-/* PAGE HEADER */
+/* =========================================
+   PAGE HEADER
+========================================= */
 
 .page-header{
   padding:90px 7%;
@@ -361,553 +601,566 @@ img{
   max-width:700px;
   margin-inline:auto;
 }
-/* =====================================================
+
+/* =========================================
    GOVERNMENT SECTION
-===================================================== */
+========================================= */
 
 .government{
-    background:linear-gradient(135deg,#021326,#0B4F9C,#008F8B);
-    color:#E8FFFF;
+  background:linear-gradient(135deg,#021326,#0B4F9C,#008F8B);
+  color:#E8FFFF;
 }
 
 .heading.light span{
-    color:#59F2EC;
+  color:#59F2EC;
 }
 
 .heading.light h2{
-    color:#FFFFFF;
+  color:#FFFFFF;
 }
 
 .heading.light p{
-    color:#CFEFF1;
+  color:#CFEFF1;
 }
 
 .government-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:24px;
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
 }
 
 .government-card{
-    padding:30px;
-    background:rgba(2,19,38,.65);
-    border:1px solid #0B6075;
-    border-radius:18px;
-    transition:.3s;
+  padding:30px;
+  background:rgba(2,19,38,.65);
+  border:1px solid #0B6075;
+  border-radius:18px;
+  transition:.3s;
 }
 
 .government-card:hover{
-    border-color:#00CFC8;
-    transform:translateY(-5px);
+  border-color:#00CFC8;
+  transform:translateY(-5px);
 }
 
 .government-card small{
-    color:#59F2EC;
-    font-weight:bold;
-    letter-spacing:2px;
+  color:#59F2EC;
+  font-weight:bold;
+  letter-spacing:2px;
 }
 
 .government-card h3{
-    color:#59F2EC;
-    margin:10px 0;
-    font-size:1.4rem;
+  color:#59F2EC;
+  margin:10px 0;
+  font-size:1.4rem;
 }
 
 .government-card strong{
-    color:#00CFC8;
+  color:#00CFC8;
 }
 
 .government-card p{
-    color:#D8FFFF;
+  color:#D8FFFF;
 }
 
-
-/* =====================================================
+/* =========================================
    JEMAAH EXCO
-===================================================== */
+========================================= */
 
 .department-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
 }
 
 .department{
-    padding:28px;
-    background:linear-gradient(145deg,#082B47,#062641);
-    border:1px solid #0B6075;
-    border-radius:18px;
-    transition:.3s;
+  padding:28px;
+  background:linear-gradient(145deg,#082B47,#062641);
+  border:1px solid #0B6075;
+  border-radius:18px;
+  transition:.3s;
 }
 
 .department:hover{
-    transform:translateY(-5px);
-    border-color:#00CFC8;
+  transform:translateY(-5px);
+  border-color:#00CFC8;
 }
 
 .department-icon{
-    width:60px;
-    height:60px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:rgba(0,207,200,.12);
-    border:2px solid #008F8B;
-    border-radius:14px;
-    color:#00CFC8;
-    margin-bottom:18px;
+  width:60px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,207,200,.12);
+  border:2px solid #008F8B;
+  border-radius:14px;
+  color:#00CFC8;
+  margin-bottom:18px;
 }
 
 .department-icon svg{
-    width:28px;
-    height:28px;
-    stroke-width:2;
+  width:28px;
+  height:28px;
+  stroke-width:2;
 }
 
 .department h3{
-    color:#59F2EC;
-    margin-bottom:6px;
-    font-size:1.3rem;
+  color:#59F2EC;
+  margin-bottom:6px;
+  font-size:1.3rem;
 }
 
 .department h4{
-    color:#00CFC8;
-    margin-bottom:15px;
-    font-size:.95rem;
+  color:#00CFC8;
+  margin-bottom:15px;
+  font-size:.95rem;
 }
 
 .department p{
-    color:#D8FFFF;
-    font-size:.95rem;
-    margin-bottom:12px;
+  color:#D8FFFF;
+  font-size:.95rem;
+  margin-bottom:12px;
 }
 
-
-/* =====================================================
+/* =========================================
    VISION 2034
-===================================================== */
+========================================= */
 
 .vision{
-    background:linear-gradient(180deg,#052748,#041A30);
+  background:linear-gradient(180deg,#052748,#041A30);
 }
 
 .vision-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
 }
 
 .vision-card{
-    padding:28px;
-    background:linear-gradient(145deg,#082B47,#062641);
-    border:1px solid #0B6075;
-    border-radius:18px;
+  padding:28px;
+  background:linear-gradient(145deg,#082B47,#062641);
+  border:1px solid #0B6075;
+  border-radius:18px;
 }
 
 .vision-card:hover{
-    border-color:#00CFC8;
-    transform:translateY(-5px);
+  border-color:#00CFC8;
+  transform:translateY(-5px);
 }
 
 .vision-card h3{
-    color:#59F2EC;
-    margin-bottom:12px;
+  color:#59F2EC;
+  margin-bottom:12px;
 }
 
 .vision-card p{
-    color:#D8FFFF;
+  color:#D8FFFF;
 }
 
-
-/* =====================================================
+/* =========================================
    ROADMAP TABLE
-===================================================== */
+========================================= */
 
 .roadmap{
-    max-width:1000px;
-    margin:60px auto 0;
-    padding:30px;
-    background:#062641;
-    border:1px solid #0B6075;
-    border-radius:18px;
-    overflow-x:auto;
+  max-width:1000px;
+  margin:60px auto 0;
+  padding:30px;
+  background:#062641;
+  border:1px solid #0B6075;
+  border-radius:18px;
+  overflow-x:auto;
 }
 
 .roadmap h3{
-    color:#59F2EC;
-    margin-bottom:20px;
+  color:#59F2EC;
+  margin-bottom:20px;
 }
 
 table{
-    width:100%;
-    border-collapse:collapse;
+  width:100%;
+  border-collapse:collapse;
 }
 
 th,td{
-    padding:14px;
-    text-align:left;
-    border-bottom:1px solid #0B6075;
+  padding:14px;
+  text-align:left;
+  border-bottom:1px solid #0B6075;
 }
 
 th{
-    background:#0B4F9C;
-    color:white;
+  background:#0B4F9C;
+  color:white;
 }
 
 td{
-    color:#D8FFFF;
+  color:#D8FFFF;
 }
 
-
-/* =====================================================
+/* =========================================
    DIPLOMACY
-===================================================== */
+========================================= */
 
 .diplomacy{
-    padding:90px 7%;
-    display:grid;
-    grid-template-columns:1fr 220px;
-    gap:50px;
-    align-items:center;
-    background:linear-gradient(135deg,#021326,#0B4F9C,#008F8B);
+  padding:90px 7%;
+  display:grid;
+  grid-template-columns:1fr 220px;
+  gap:50px;
+  align-items:center;
+  background:linear-gradient(135deg,#021326,#0B4F9C,#008F8B);
 }
 
 .diplomacy-content span{
-    color:#59F2EC;
-    font-weight:bold;
-    letter-spacing:2px;
+  color:#59F2EC;
+  font-weight:bold;
+  letter-spacing:2px;
 }
 
 .diplomacy-content h2{
-    color:white;
-    font-size:3rem;
-    margin:15px 0;
+  color:white;
+  font-size:3rem;
+  margin:15px 0;
 }
 
 .diplomacy-content p{
-    color:#D8FFFF;
-    margin-bottom:18px;
+  color:#D8FFFF;
+  margin-bottom:18px;
 }
 
 .diplomacy-content a:not(.button){
-    color:#59F2EC;
-    text-decoration:underline;
+  color:#59F2EC;
+  text-decoration:underline;
 }
 
 .globe{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#00CFC8;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#00CFC8;
 }
 
 .globe svg{
-    width:120px;
-    height:120px;
+  width:120px;
+  height:120px;
 }
 
-
-/* =====================================================
+/* =========================================
    CITIZENSHIP
-===================================================== */
+========================================= */
 
 .citizenship{
-    padding:80px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:30px;
-    background:linear-gradient(135deg,#061A40,#0B4F9C,#008F8B);
+  padding:80px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+  background:linear-gradient(135deg,#061A40,#0B4F9C,#008F8B);
 }
 
 .citizenship span{
-    color:#59F2EC;
-    letter-spacing:2px;
-    font-size:13px;
-    font-weight:bold;
+  color:#59F2EC;
+  letter-spacing:2px;
+  font-size:13px;
+  font-weight:bold;
 }
 
 .citizenship h2{
-    color:white;
-    font-size:3rem;
-    margin:12px 0;
+  color:white;
+  font-size:3rem;
+  margin:12px 0;
 }
 
 .citizenship p{
-    color:#D8FFFF;
+  color:#D8FFFF;
 }
 
 .citizenship-list{
-    list-style:none;
-    padding:0;
-    margin:25px 0;
+  list-style:none;
+  padding:0;
+  margin:25px 0;
 }
 
 .citizenship-list li{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    margin-bottom:15px;
-    color:#E8FFFF;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:15px;
+  color:#E8FFFF;
 }
 
 .citizenship-list svg{
-    width:22px;
-    height:22px;
-    color:#00CFC8;
+  width:22px;
+  height:22px;
+  color:#00CFC8;
 }
 
-
-/* Constitution Button */
+/* =========================================
+   CONSTITUTION BUTTON
+========================================= */
 
 .download-button{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:14px 24px;
-    border-radius:10px;
-    background:linear-gradient(135deg,#00CFC8,#008F8B);
-    color:#021326;
-    font-weight:bold;
-    transition:.3s;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 24px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#00CFC8,#008F8B);
+  color:#021326;
+  font-weight:bold;
+  transition:.3s;
 }
 
 .download-button:hover{
-    transform:translateY(-2px);
+  transform:translateY(-2px);
 }
 
-
-/* =====================================================
+/* =========================================
    NEWS SECTION
-===================================================== */
+========================================= */
 
 .news-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
 }
 
 .news-card{
-    background:linear-gradient(145deg,#082B47,#062641);
-    border:1px solid #0B6075;
-    border-radius:18px;
-    overflow:hidden;
-    transition:.3s;
+  background:linear-gradient(145deg,#082B47,#062641);
+  border:1px solid #0B6075;
+  border-radius:18px;
+  overflow:hidden;
+  transition:.3s;
 }
 
 .news-card:hover{
-    transform:translateY(-5px);
-    border-color:#00CFC8;
+  transform:translateY(-5px);
+  border-color:#00CFC8;
 }
 
 .news-image{
-    height:180px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#061A40,#0B4F9C);
-    padding:25px;
+  height:180px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#061A40,#0B4F9C);
+  padding:25px;
 }
 
 .news-image img{
-    max-height:120px;
-    object-fit:contain;
+  max-height:120px;
+  object-fit:contain;
 }
 
 .news-content{
-    padding:24px;
+  padding:24px;
 }
 
 .news-category{
-    color:#00CFC8;
-    font-size:12px;
-    letter-spacing:2px;
-    font-weight:bold;
+  color:#00CFC8;
+  font-size:12px;
+  letter-spacing:2px;
+  font-weight:bold;
 }
 
 .news-date{
-    display:block;
-    color:#87D7D2;
-    margin:8px 0 14px;
+  display:block;
+  color:#87D7D2;
+  margin:8px 0 14px;
 }
 
 .news-content h3{
-    color:#59F2EC;
-    margin-bottom:10px;
+  color:#59F2EC;
+  margin-bottom:10px;
 }
 
 .news-content p{
-    color:#D8FFFF;
+  color:#D8FFFF;
 }
 
 .news-link{
-    color:#00CFC8;
-    font-weight:bold;
+  color:#00CFC8;
+  font-weight:bold;
 }
 
-
-/* =====================================================
+/* =========================================
    NATIONAL SYMBOLS
-===================================================== */
+========================================= */
 
 .symbols-grid{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
 }
 
 .symbol-flag,
 .symbol-coat{
-    min-height:260px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:30px;
-    background:linear-gradient(135deg,#062641,#0B4F9C);
+  min-height:260px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:30px;
+  background:linear-gradient(135deg,#062641,#0B4F9C);
 }
 
-
-/* =====================================================
+/* =========================================
    FOOTER
-===================================================== */
+========================================= */
 
 footer{
-    padding:60px 7% 25px;
-    background:#010C19;
-    border-top:3px solid #00CFC8;
+  padding:60px 7% 25px;
+  background:#010C19;
+  border-top:3px solid #00CFC8;
 }
 
 .footer-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr;
-    gap:40px;
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
 }
 
 .footer-brand img{
-    width:70px;
-    margin-bottom:15px;
+  width:70px;
+  margin-bottom:15px;
 }
 
 .footer-brand h3{
-    color:#59F2EC;
+  color:#59F2EC;
 }
 
 .footer-brand p,
 .footer-brand em{
-    color:#9ED9DB;
+  color:#9ED9DB;
 }
 
 footer h4{
-    color:#00CFC8;
-    margin-bottom:12px;
+  color:#00CFC8;
+  margin-bottom:12px;
 }
 
 footer a{
-    display:block;
-    margin-bottom:8px;
-    color:#B8F4F2;
-    transition:.25s;
+  display:block;
+  margin-bottom:8px;
+  color:#B8F4F2;
+  transition:.25s;
 }
 
 footer a:hover{
-    color:#59F2EC;
+  color:#59F2EC;
 }
 
 .footer-bottom{
-    max-width:1200px;
-    margin:40px auto 0;
-    padding-top:20px;
-    border-top:1px solid #0B6075;
-    display:flex;
-    justify-content:space-between;
-    color:#87C5C6;
-    font-size:.85rem;
+  max-width:1200px;
+  margin:40px auto 0;
+  padding-top:20px;
+  border-top:1px solid #0B6075;
+  display:flex;
+  justify-content:space-between;
+  color:#87C5C6;
+  font-size:.85rem;
 }
 
-
-/* =====================================================
+/* =========================================
    RESPONSIVE DESIGN
-===================================================== */
+========================================= */
 
-@media (max-width:900px){
+@media(max-width:900px){
 
-    .menu-button{
-        display:block;
-    }
+  .menu-button{
+    display:block;
+  }
 
-    .navbar nav{
-        display:none;
-        position:absolute;
-        top:100%;
-        left:0;
-        right:0;
-        flex-direction:column;
-        background:#031226;
-        padding:15px;
-        border-top:1px solid #0B6075;
-    }
+  .navbar nav{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    flex-direction:column;
+    align-items:stretch;
+    background:#031226;
+    padding:15px;
+    border-top:1px solid #0B6075;
+  }
 
-    .navbar nav.open{
-        display:flex;
-    }
+  .navbar nav.open{
+    display:flex;
+  }
 
-    .nation-grid,
-    .government-grid,
-    .department-grid,
-    .vision-grid,
-    .symbols-grid,
-    .news-grid,
-    .diplomacy{
-        grid-template-columns:1fr;
-    }
+  .navbar nav a,
+  .nav-search-button{
+    width:100%;
+    justify-content:flex-start;
+  }
 
-    .quick-info{
-        grid-template-columns:repeat(2,1fr);
-    }
+  .nation-grid,
+  .government-grid,
+  .department-grid,
+  .vision-grid,
+  .symbols-grid,
+  .news-grid,
+  .diplomacy{
+    grid-template-columns:1fr;
+  }
 
-    .citizenship{
-        flex-direction:column;
-        align-items:flex-start;
-    }
+  .quick-info{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
+  .citizenship{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .search-container{
+    padding:35px 25px;
+  }
+
 }
 
-@media (max-width:600px){
+@media(max-width:600px){
 
-    .hero{
-        padding:70px 5%;
-    }
+  .hero{
+    padding:70px 5%;
+  }
 
-    .hero h1{
-        font-size:42px;
-    }
+  .hero h1{
+    font-size:42px;
+  }
 
-    .section{
-        padding:65px 5%;
-    }
+  .section{
+    padding:65px 5%;
+  }
 
-    .quick-info{
-        grid-template-columns:1fr;
-    }
+  .quick-info{
+    grid-template-columns:1fr;
+  }
 
-    .footer-bottom{
-        flex-direction:column;
-        gap:10px;
-    }
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .search-panel{
+    padding:70px 12px 20px;
+  }
+
+  .search-container h2{
+    font-size:30px;
+  }
 
 }
