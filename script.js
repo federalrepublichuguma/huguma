@@ -1,100 +1,167 @@
-/* ==========================================
-   FEDERAL REPUBLIC OF HUGUMA
-   OFFICIAL SCRIPT.JS
-========================================== */
+/* =====================================================
+   HUGUMA GOVERNMENT WEBSITE
+   MAIN JAVASCRIPT
+===================================================== */
 
-// ===== Mobile Navigation =====
+document.addEventListener("DOMContentLoaded", function () {
 
-const menuButton = document.getElementById("menuButton");
-const navMenu = document.getElementById("navMenu");
+    /* =================================================
+       MOBILE NAVIGATION
+    ================================================= */
 
-if (menuButton && navMenu) {
-    menuButton.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-    });
+    const menuButton = document.getElementById("menuButton");
+    const navMenu = document.getElementById("navMenu");
 
-    // Tutup menu selepas pilih link (mobile)
-    document.querySelectorAll("#navMenu a").forEach(link => {
-        link.addEventListener("click", () => {
-            navMenu.classList.remove("active");
+    if (menuButton && navMenu) {
+
+        menuButton.addEventListener("click", function () {
+
+            navMenu.classList.toggle("open");
+
+            const isOpen = navMenu.classList.contains("open");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
         });
-    });
-}
 
-// ===== Footer Year =====
 
-const yearElement = document.getElementById("year");
+        /* Close menu after clicking a link */
 
-if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-}
+        const navLinks = navMenu.querySelectorAll("a");
 
-// ===== Fade-in Animation =====
+        navLinks.forEach(function (link) {
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+            link.addEventListener("click", function () {
+
+                navMenu.classList.remove("open");
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+    }
+
+
+    /* =================================================
+       ACTIVE NAVIGATION LINK
+    ================================================= */
+
+    const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
+
+    const allNavLinks =
+        document.querySelectorAll("#navMenu a");
+
+    allNavLinks.forEach(function (link) {
+
+        const linkPage =
+            link.getAttribute("href");
+
+        if (
+            linkPage &&
+            !linkPage.startsWith("#") &&
+            linkPage === currentPage
+        ) {
+
+            link.classList.add("active");
+
         }
+
     });
-}, {
-    threshold: 0.15
-});
 
-document.querySelectorAll(
-    ".section, .info-card, .government-card, .department, .vision-card, .symbol-card, .flag-card"
-).forEach(item => {
-    item.classList.add("hidden");
-    observer.observe(item);
-});
 
-// ===== Active Navbar Link =====
+    /* =================================================
+       CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
+    ================================================= */
 
-const currentPage = window.location.pathname.split("/").pop();
+    document.addEventListener("click", function (event) {
 
-document.querySelectorAll("#navMenu a").forEach(link => {
-    const page = link.getAttribute("href");
+        if (!navMenu || !menuButton) {
+            return;
+        }
 
-    if (page === currentPage || (currentPage === "" && page === "index.html")) {
-        link.classList.add("active-link");
-    }
-});
+        const clickedInsideNavbar =
+            event.target.closest(".navbar");
 
-// ===== Scroll to Top Button (optional) =====
+        if (!clickedInsideNavbar) {
 
-const scrollButton = document.createElement("button");
-scrollButton.innerHTML = "⬆";
-scrollButton.id = "scrollTopBtn";
-document.body.appendChild(scrollButton);
+            navMenu.classList.remove("open");
 
-scrollButton.style.cssText = `
-position:fixed;
-bottom:20px;
-right:20px;
-width:45px;
-height:45px;
-border:none;
-border-radius:50%;
-background:linear-gradient(135deg,#0066cc,#00c9b7);
-color:white;
-font-size:20px;
-cursor:pointer;
-display:none;
-box-shadow:0 6px 20px rgba(0,0,0,.25);
-z-index:9999;
-`;
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 250) {
-        scrollButton.style.display = "block";
-    } else {
-        scrollButton.style.display = "none";
-    }
-});
+        }
 
-scrollButton.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
     });
+
+
+    /* =================================================
+       LUCIDE ICONS
+    ================================================= */
+
+    if (typeof lucide !== "undefined") {
+
+        lucide.createIcons();
+
+    }
+
+
+    /* =================================================
+       SMOOTH ANCHOR LINKS
+    ================================================= */
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+
+        link.addEventListener("click", function (event) {
+
+            const targetID =
+                link.getAttribute("href");
+
+            if (!targetID || targetID === "#") {
+                return;
+            }
+
+            const target =
+                document.querySelector(targetID);
+
+            if (target) {
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+        });
+
+    });
+
+
+    /* =================================================
+       YEAR AUTOMATICALLY
+    ================================================= */
+
+    const yearElements =
+        document.querySelectorAll("[data-current-year]");
+
+    yearElements.forEach(function (element) {
+
+        element.textContent =
+            new Date().getFullYear();
+
+    });
+
 });
