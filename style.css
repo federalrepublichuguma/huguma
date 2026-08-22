@@ -1,48 +1,7 @@
-/* =========================================================
-   HUGUMA GOVERNMENT PORTAL
-   style.css
-   Blue → Turquoise Government Design
-========================================================= */
-
-:root {
-    --blue-dark: #003b7a;
-    --blue: #0066cc;
-    --blue-light: #008ee6;
-    --cyan: #00b8dc;
-    --turquoise: #00c9b7;
-    --turquoise-light: #7fffe9;
-
-    --navy: #002b5c;
-    --text: #163a5f;
-    --muted: #60758a;
-    --white: #ffffff;
-    --light: #f3fbff;
-    --lighter: #f8fdff;
-    --border: #dcecf5;
-
-    --gradient: linear-gradient(
-        135deg,
-        #003b7a 0%,
-        #0066cc 35%,
-        #008ee6 65%,
-        #00c9b7 100%
-    );
-
-    --gradient-soft: linear-gradient(
-        135deg,
-        #e9f8ff,
-        #e8ffff
-    );
-
-    --shadow: 0 12px 35px rgba(0, 65, 120, 0.12);
-    --shadow-hover: 0 18px 45px rgba(0, 85, 150, 0.2);
-
-    --radius: 18px;
-}
-
-/* =========================================================
-   RESET
-========================================================= */
+/* =====================================================
+   HUGUMA GOVERNMENT WEBSITE
+   MAIN STYLESHEET
+===================================================== */
 
 * {
     margin: 0;
@@ -52,20 +11,18 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
 }
 
 body {
-    font-family:
-        Inter,
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fa;
+    color: #17202a;
+    line-height: 1.7;
+}
 
-    background: var(--light);
-    color: var(--text);
-    line-height: 1.65;
-    min-height: 100vh;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 img {
@@ -73,360 +30,196 @@ img {
     display: block;
 }
 
-a {
-    text-decoration: none;
-}
 
-button {
-    font-family: inherit;
-}
-
-ul {
-    padding-left: 22px;
-}
-
-/* =========================================================
+/* =====================================================
    NAVBAR
-========================================================= */
+===================================================== */
 
 .navbar {
     position: sticky;
-    position: -webkit-sticky;
-
     top: 0;
-    left: 0;
+    z-index: 1000;
 
     width: 100%;
-
-    min-height: 78px;
-
-    z-index: 99999;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 12px 7%;
+    padding: 14px 6%;
 
-    background:
-        linear-gradient(
-            135deg,
-            #003b7a 0%,
-            #0066cc 38%,
-            #008ee6 68%,
-            #00c9b7 100%
-        );
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid #e5e7eb;
 
-    box-shadow:
-        0 5px 25px rgba(0, 40, 90, 0.2);
-
-    isolation: isolate;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
-/* Brand */
-
 .brand {
-    position: relative;
-    z-index: 100001;
-
     display: flex;
     align-items: center;
-
     gap: 12px;
 
-    color: white;
-
-    cursor: pointer;
-
-    flex-shrink: 0;
+    min-width: 190px;
 }
 
 .brand img {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
 
     object-fit: contain;
+}
 
-    filter: drop-shadow(
-        0 3px 8px rgba(0, 0, 0, 0.18)
-    );
+.brand div {
+    display: flex;
+    flex-direction: column;
 }
 
 .brand strong {
-    display: block;
-
-    color: white;
-
-    font-size: 21px;
-    line-height: 1.1;
-
+    font-size: 1.15rem;
     letter-spacing: 2px;
 }
 
 .brand small {
-    display: block;
-
-    color: rgba(255, 255, 255, 0.82);
-
-    font-size: 11px;
-
-    margin-top: 3px;
-
-    letter-spacing: 0.5px;
+    font-size: 0.72rem;
+    color: #6b7280;
 }
 
-/* Desktop navigation */
 
-#navMenu {
-    position: relative;
-    z-index: 100001;
-
+.navbar nav {
     display: flex;
     align-items: center;
-
-    gap: 5px;
-
-    pointer-events: auto;
+    gap: 6px;
 }
 
-#navMenu a {
-    position: relative;
+.navbar nav a {
+    padding: 9px 12px;
 
-    display: inline-block;
+    font-size: 0.88rem;
+    font-weight: 600;
 
-    padding: 10px 11px;
-
-    color: white;
-
-    font-size: 14px;
-    font-weight: 700;
+    color: #374151;
 
     border-radius: 8px;
 
-    cursor: pointer;
-
-    pointer-events: auto;
-
-    transition:
-        color 0.25s ease,
-        background 0.25s ease,
-        transform 0.25s ease;
+    transition: 0.25s ease;
 }
 
-#navMenu a::after {
-    content: "";
-
-    position: absolute;
-
-    left: 11px;
-    right: 11px;
-    bottom: 5px;
-
-    height: 2px;
-
-    background: white;
-
-    transform: scaleX(0);
-
-    transform-origin: center;
-
-    transition: transform 0.25s ease;
+.navbar nav a:hover {
+    background: #eef2f7;
+    color: #111827;
 }
 
-#navMenu a:hover {
-    color: #cffff8;
-
-    background: rgba(255, 255, 255, 0.1);
-
-    transform: translateY(-1px);
+.navbar nav a.active {
+    background: #17202a;
+    color: white;
 }
 
-#navMenu a:hover::after,
-#navMenu a.active-link::after {
-    transform: scaleX(1);
-}
-
-#navMenu a.active-link {
-    color: var(--turquoise-light);
-
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Menu button */
 
 .menu-button {
-    position: relative;
-    z-index: 100002;
-
     display: none;
 
-    width: 45px;
-    height: 45px;
+    border: none;
+    background: transparent;
 
-    border: 1px solid rgba(255, 255, 255, 0.35);
-
-    border-radius: 10px;
-
-    background: rgba(255, 255, 255, 0.12);
-
-    color: white;
-
-    font-size: 25px;
+    font-size: 1.7rem;
 
     cursor: pointer;
 
-    pointer-events: auto;
+    color: #17202a;
 }
 
-.menu-button:hover {
-    background: rgba(255, 255, 255, 0.22);
-}
 
-/* =========================================================
+/* =====================================================
    HERO
-========================================================= */
+===================================================== */
 
 .hero {
-    position: relative;
-
-    z-index: 1;
-
-    min-height: 78vh;
+    min-height: 620px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    padding: 100px 6%;
+
     text-align: center;
 
-    padding: 100px 7%;
+    background:
+        linear-gradient(
+            135deg,
+            #101820 0%,
+            #182936 50%,
+            #0c1319 100%
+        );
 
     color: white;
-
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(0, 217, 255, 0.25),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 75%,
-            rgba(0, 255, 198, 0.2),
-            transparent 30%
-        ),
-        var(--gradient);
-}
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 500px;
-    height: 500px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.05);
-
-    top: -250px;
-    right: -150px;
-}
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    width: 350px;
-    height: 350px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.04);
-
-    bottom: -180px;
-    left: -100px;
 }
 
 .hero-content {
-    position: relative;
-
-    z-index: 2;
-
-    width: 100%;
-    max-width: 950px;
+    max-width: 900px;
+    margin: auto;
 }
 
 .hero-emblem {
-    width: 145px;
-    height: 145px;
+    width: 130px;
+    height: 130px;
 
     object-fit: contain;
 
-    margin: 0 auto 25px;
-
-    filter:
-        drop-shadow(
-            0 8px 20px rgba(0, 0, 0, 0.2)
-        );
+    margin: 0 auto 28px;
 }
 
 .eyebrow {
-    color: #c9fff7;
-
-    font-size: 13px;
-
+    font-size: 0.78rem;
     font-weight: 800;
 
     letter-spacing: 3px;
 
-    text-transform: uppercase;
+    margin-bottom: 15px;
+
+    color: #c7d2da;
 }
 
 .hero h1 {
-    margin: 15px 0;
+    font-size: clamp(2.6rem, 7vw, 5.5rem);
 
-    color: white;
+    line-height: 1.05;
 
-    font-size: clamp(42px, 7vw, 72px);
-
-    line-height: 1.03;
+    margin-bottom: 20px;
 
     letter-spacing: -2px;
-
-    text-shadow:
-        0 5px 20px rgba(0, 40, 80, 0.18);
 }
 
 .motto {
-    color: #cffff8;
-
-    font-size: 21px;
-
-    font-style: italic;
+    font-size: 1.2rem;
 
     font-weight: 600;
+
+    margin-bottom: 20px;
+
+    font-style: italic;
 }
 
 .hero-description {
-    max-width: 760px;
+    max-width: 720px;
 
-    margin: 22px auto 0;
+    margin: 0 auto 30px;
 
-    color: rgba(255, 255, 255, 0.9);
+    color: #d5dce2;
 
-    font-size: 17px;
+    font-size: 1rem;
 }
 
-/* =========================================================
+
+/* =====================================================
    BUTTONS
-========================================================= */
+===================================================== */
 
 .hero-buttons {
-    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .button {
@@ -435,145 +228,105 @@ ul {
     align-items: center;
     justify-content: center;
 
-    min-height: 48px;
+    gap: 8px;
 
-    padding: 12px 23px;
+    padding: 13px 22px;
 
-    margin: 6px;
+    border-radius: 8px;
 
-    border-radius: 10px;
+    font-weight: 700;
 
-    font-size: 14px;
-
-    font-weight: 800;
+    transition: 0.25s ease;
 
     cursor: pointer;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
 }
 
 .button:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+}
 
-    box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.15);
+.button svg {
+    width: 18px;
+    height: 18px;
 }
 
 .button-light {
     background: white;
-
-    color: var(--blue);
+    color: #17202a;
 }
 
 .button-light:hover {
-    background: #efffff;
+    background: #e9edf1;
 }
 
 .button-outline {
-    border: 2px solid white;
-
+    border: 1px solid rgba(255, 255, 255, 0.6);
     color: white;
-
-    background: transparent;
 }
 
 .button-outline:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .gradient-button {
-    background:
-        linear-gradient(
-            90deg,
-            #0066cc,
-            #008ee6,
-            #00c9b7
-        );
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #dce5eb
+    );
 
-    color: white;
-
-    box-shadow:
-        0 8px 20px rgba(0, 150, 190, 0.18);
+    color: #17202a;
 }
 
-/* =========================================================
-   SECTIONS
-========================================================= */
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
 
 .section {
-    position: relative;
-
-    padding: 85px 8%;
-
-    background: var(--light);
-}
-
-.section:nth-of-type(even) {
-    background: white;
-}
-
-.section > p {
-    max-width: 900px;
-
-    margin: 0 auto 18px;
-
-    color: var(--muted);
-
-    font-size: 16px;
+    padding: 90px 7%;
 }
 
 .heading {
-    max-width: 850px;
+    max-width: 800px;
 
-    margin: 0 auto 48px;
+    margin: 0 auto 50px;
 
     text-align: center;
 }
 
-.heading span {
+.heading span,
+.citizenship span,
+.diplomacy-content > span {
     display: block;
 
-    color: var(--blue-light);
+    margin-bottom: 10px;
 
-    font-size: 12px;
+    font-size: 0.75rem;
 
     font-weight: 800;
 
-    letter-spacing: 3px;
+    letter-spacing: 2.5px;
 
-    text-transform: uppercase;
+    color: #687684;
 }
 
 .heading h2 {
-    margin-top: 9px;
+    margin-bottom: 15px;
 
-    color: var(--blue-dark);
-
-    font-size: clamp(30px, 5vw, 44px);
+    font-size: clamp(2rem, 5vw, 3.3rem);
 
     line-height: 1.15;
 }
 
 .heading p {
-    margin-top: 12px;
-
-    color: var(--muted);
-
-    font-size: 16px;
+    color: #66717c;
 }
 
-.heading.light span,
-.heading.light h2,
-.heading.light p {
-    color: white;
-}
 
-/* =========================================================
-   ABOUT / NATION
-========================================================= */
+/* =====================================================
+   NATION GRID
+===================================================== */
 
 .nation-grid {
     max-width: 1100px;
@@ -582,540 +335,423 @@ ul {
 
     display: grid;
 
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
+    grid-template-columns: 1fr 1fr;
 
-    gap: 50px;
+    gap: 35px;
 
     align-items: center;
 }
 
 .nation-text h3 {
-    margin-bottom: 15px;
+    font-size: 1.8rem;
 
-    color: var(--blue-dark);
-
-    font-size: 28px;
+    margin-bottom: 18px;
 }
 
 .nation-text p {
     margin-bottom: 15px;
 
-    color: var(--muted);
+    color: #66717c;
 }
 
-/* =========================================================
-   FLAG CARD
-========================================================= */
+
+/* =====================================================
+   CARDS
+===================================================== */
 
 .flag-card,
-.symbol-card {
-    overflow: hidden;
-
+.symbol-card,
+.info-card,
+.department,
+.department-card,
+.government-card,
+.vision-card {
     background: white;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid #e4e8ec;
 
-    border-radius: var(--radius);
+    border-radius: 16px;
 
-    box-shadow: var(--shadow);
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .flag-card:hover,
-.symbol-card:hover {
+.symbol-card:hover,
+.info-card:hover,
+.department:hover,
+.government-card:hover,
+.vision-card:hover {
     transform: translateY(-5px);
 
-    box-shadow: var(--shadow-hover);
-}
-
-.flag-container,
-.symbol-flag {
-    padding: 25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #eefaff,
-            #eaffff
-        );
-}
-
-.flag-container img,
-.symbol-flag img {
-    width: 100%;
-
-    height: 250px;
-
-    object-fit: contain;
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.09);
 }
 
 .card-content {
-    padding: 23px;
+    padding: 25px;
 }
 
 .card-content span {
-    color: var(--blue-light);
-
-    font-size: 11px;
+    font-size: 0.7rem;
 
     font-weight: 800;
 
     letter-spacing: 2px;
+
+    color: #77838f;
 }
 
 .card-content h3 {
     margin: 6px 0;
 
-    color: var(--blue-dark);
-
-    font-size: 23px;
+    font-size: 1.35rem;
 }
 
 .card-content p {
-    color: var(--muted);
+    color: #6b7280;
 }
 
-/* =========================================================
-   QUICK INFORMATION
-========================================================= */
+
+/* =====================================================
+   FLAG
+===================================================== */
+
+.flag-container {
+    padding: 30px;
+
+    background: #eef1f3;
+}
+
+.flag-container img {
+    width: 100%;
+    max-height: 300px;
+
+    object-fit: contain;
+
+    margin: auto;
+}
+
+
+/* =====================================================
+   QUICK INFO
+===================================================== */
 
 .quick-info {
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-    padding: 50px 8%;
+    padding: 35px 7%;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(4, 1fr);
 
-    gap: 20px;
+    gap: 18px;
 
-    background: var(--light);
+    background: #eef1f3;
 }
 
 .info-card {
-    padding: 30px 20px;
+    padding: 30px;
 
     text-align: center;
-
-    background: white;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: var(--radius);
-
-    box-shadow:
-        0 8px 25px rgba(0, 80, 140, 0.08);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-6px);
-
-    box-shadow: var(--shadow-hover);
 }
 
 .info-icon {
-    margin-bottom: 10px;
+    font-size: 2rem;
 
-    font-size: 36px;
+    margin-bottom: 10px;
 }
 
 .info-card h3 {
     margin-bottom: 4px;
-
-    color: var(--blue-dark);
 }
 
 .info-card p {
-    color: var(--muted);
+    color: #6b7280;
 }
 
-/* =========================================================
+
+/* =====================================================
    GOVERNMENT
-========================================================= */
+===================================================== */
 
 .government {
-    background:
-        radial-gradient(
-            circle at 10% 20%,
-            rgba(0, 218, 255, 0.18),
-            transparent 25%
-        ),
-        var(--gradient);
+    background: #101820;
 
     color: white;
 }
 
+.heading.light span {
+    color: #aeb9c1;
+}
+
+.heading.light p {
+    color: #aeb9c1;
+}
+
 .government-grid {
-    max-width: 1200px;
+    max-width: 1100px;
 
     margin: auto;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 20px;
+    gap: 22px;
 }
 
 .government-card {
     padding: 30px;
 
-    background:
-        rgba(255, 255, 255, 0.1);
+    background: #18232c;
 
-    border:
-        1px solid rgba(255, 255, 255, 0.2);
+    border-color: #2b3944;
 
-    border-radius: var(--radius);
-
-    backdrop-filter: blur(8px);
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease;
-}
-
-.government-card:hover {
-    transform: translateY(-6px);
-
-    background:
-        rgba(255, 255, 255, 0.15);
+    color: white;
 }
 
 .government-card small {
-    display: block;
+    color: #8f9ca6;
 
-    margin-bottom: 8px;
-
-    color: rgba(255, 255, 255, 0.35);
-
-    font-size: 35px;
-
-    font-weight: 900;
-
-    line-height: 1;
+    font-weight: 800;
 }
 
 .government-card h3 {
-    color: white;
+    margin: 10px 0 4px;
 
-    font-size: 21px;
+    font-size: 1.5rem;
 }
 
 .government-card strong {
-    display: block;
-
-    margin: 8px 0;
-
-    color: #bffff5;
-
-    font-size: 16px;
+    color: #dce5eb;
 }
 
 .government-card p {
-    color: rgba(255, 255, 255, 0.78);
+    margin-top: 12px;
 
-    font-size: 14px;
+    color: #aeb9c1;
 }
 
-/* =========================================================
-   MINISTRIES / DEPARTMENTS
-========================================================= */
+
+/* =====================================================
+   DEPARTMENTS / EXCO
+===================================================== */
 
 .department-grid {
-    max-width: 1250px;
+    max-width: 1200px;
 
     margin: auto;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
 
-    gap: 18px;
+    gap: 22px;
 }
 
 .department {
-    padding: 28px 18px;
-
-    text-align: center;
+    padding: 30px;
 
     background: white;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: var(--radius);
-
-    box-shadow:
-        0 8px 25px rgba(0, 70, 130, 0.07);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.department:hover {
-    transform: translateY(-7px);
-
-    box-shadow: var(--shadow-hover);
-
-    border-color: #b7edf3;
 }
 
 .department-icon {
-    margin-bottom: 10px;
+    width: 54px;
+    height: 54px;
 
-    font-size: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    background: #eef2f5;
+
+    color: #17202a;
+}
+
+.department-icon svg {
+    width: 26px;
+    height: 26px;
 }
 
 .department h3 {
-    color: var(--blue-dark);
+    font-size: 1.35rem;
 
-    font-size: 17px;
+    margin-bottom: 5px;
+}
 
-    line-height: 1.3;
+.department h4 {
+    margin-bottom: 15px;
+
+    color: #6b7280;
+
+    font-size: 0.95rem;
 }
 
 .department p {
-    margin-top: 8px;
+    color: #66717c;
 
-    color: var(--muted);
-
-    font-size: 13px;
+    margin-bottom: 13px;
 }
 
-/* =========================================================
-   VISION 2034
-========================================================= */
+
+/* =====================================================
+   VISION
+===================================================== */
 
 .vision {
-    background:
-        linear-gradient(
-            180deg,
-            #f2fcff,
-            #ffffff
-        );
+    background: #f0f3f5;
 }
 
 .vision-grid {
-    max-width: 1100px;
+    max-width: 1200px;
 
-    margin: 30px auto 0;
+    margin: auto;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
 
-    gap: 24px;
+    gap: 22px;
 }
 
 .vision-card {
-    padding: 28px;
-
-    background: white;
-
-    border:
-        1px solid var(--border);
-
-    border-left:
-        7px solid var(--turquoise);
-
-    border-radius: 15px;
-
-    box-shadow:
-        0 9px 28px rgba(0, 80, 130, 0.08);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.vision-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow: var(--shadow-hover);
+    padding: 30px;
 }
 
 .vision-card h3 {
-    margin-bottom: 8px;
-
-    color: var(--blue-dark);
-
-    font-size: 21px;
-}
-
-.vision-card p {
-    color: var(--muted);
-}
-
-/* =========================================================
-   TABLE
-========================================================= */
-
-.vision-table {
-    width: 100%;
-
-    max-width: 1100px;
-
-    margin: 0 auto;
-
-    border-collapse: separate;
-
-    border-spacing: 0;
-
-    overflow: hidden;
-
-    background: white;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 15px;
-
-    box-shadow: var(--shadow);
-}
-
-.vision-table th {
-    padding: 18px;
-
-    color: white;
-
-    text-align: left;
-
-    background: var(--gradient);
-
-    font-size: 14px;
-}
-
-.vision-table td {
-    padding: 17px 18px;
-
-    color: var(--muted);
-
-    border-bottom:
-        1px solid #e8f0f5;
-}
-
-.vision-table tr:last-child td {
-    border-bottom: none;
-}
-
-.vision-table tr:hover td {
-    background: #f3fcff;
-}
-
-/* =========================================================
-   DIPLOMACY
-========================================================= */
-
-.diplomacy {
-    max-width: 1200px;
-
-    margin: 60px auto;
-
-    padding: 65px;
-
     display: flex;
 
     align-items: center;
 
-    justify-content: space-between;
+    gap: 10px;
 
-    gap: 40px;
+    margin-bottom: 12px;
+}
 
-    background:
-        linear-gradient(
-            135deg,
-            #eafaff,
-            #e9ffff
-        );
+.vision-card h3 svg {
+    width: 21px;
+    height: 21px;
+}
 
-    border:
-        1px solid #cceef5;
+.vision-card p {
+    color: #66717c;
+}
 
-    border-radius: 25px;
 
-    box-shadow: var(--shadow);
+/* =====================================================
+   ROADMAP
+===================================================== */
+
+.roadmap {
+    max-width: 1000px;
+
+    margin: 55px auto 0;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    border: 1px solid #e4e8ec;
+
+    overflow-x: auto;
+}
+
+.roadmap h3 {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    background: #f1f4f6;
+}
+
+
+/* =====================================================
+   DIPLOMACY
+===================================================== */
+
+.diplomacy {
+    min-height: 450px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 250px;
+
+    align-items: center;
+
+    gap: 50px;
+
+    background: #101820;
+
+    color: white;
 }
 
 .diplomacy-content {
-    max-width: 750px;
+    max-width: 700px;
 }
 
 .diplomacy-content > span {
-    color: var(--blue-light);
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
+    color: #aeb9c1;
 }
 
 .diplomacy-content h2 {
-    margin: 10px 0;
+    font-size: clamp(2rem, 5vw, 3.4rem);
 
-    color: var(--blue-dark);
-
-    font-size: 42px;
-}
-
-.diplomacy-content h3 {
-    margin-top: 20px;
-
-    color: var(--blue-dark);
+    margin-bottom: 18px;
 }
 
 .diplomacy-content p {
-    color: var(--muted);
+    color: #b9c3ca;
+
+    margin-bottom: 20px;
 }
 
 .diplomacy-content a:not(.button) {
-    color: var(--blue);
+    color: white;
 
-    font-weight: 700;
-
-    word-break: break-word;
+    text-decoration: underline;
 }
 
 .globe {
-    min-width: 140px;
+    display: flex;
 
-    font-size: 115px;
+    justify-content: center;
 
-    line-height: 1;
+    font-size: 8rem;
 }
 
-/* =========================================================
+
+/* =====================================================
    CITIZENSHIP
-========================================================= */
+===================================================== */
 
 .citizenship {
-    position: relative;
-
-    max-width: 1200px;
-
-    margin: 60px auto;
-
-    padding: 55px;
+    padding: 70px 7%;
 
     display: flex;
 
@@ -1125,75 +761,39 @@ ul {
 
     gap: 30px;
 
-    overflow: hidden;
+    background: #18232c;
 
     color: white;
-
-    background:
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(255, 255, 255, 0.12),
-            transparent 25%
-        ),
-        var(--gradient);
-
-    border-radius: 25px;
-
-    box-shadow:
-        0 18px 45px rgba(0, 80, 140, 0.2);
-}
-
-.citizenship::before {
-    content: "";
-
-    position: absolute;
-
-    width: 250px;
-    height: 250px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.05);
-
-    left: -100px;
-    bottom: -150px;
-}
-
-.citizenship > * {
-    position: relative;
-
-    z-index: 1;
 }
 
 .citizenship span {
-    color: #cffff8;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
+    color: #aeb9c1;
 }
 
 .citizenship h2 {
-    margin: 8px 0;
+    font-size: clamp(2rem, 5vw, 3rem);
 
-    color: white;
-
-    font-size: clamp(30px, 5vw, 42px);
-
-    line-height: 1.15;
+    margin-bottom: 10px;
 }
 
 .citizenship p {
     max-width: 700px;
 
-    color: rgba(255, 255, 255, 0.88);
+    color: #b8c2c9;
 }
 
-/* =========================================================
+.citizenship ul {
+    margin-top: 18px;
+
+    padding-left: 20px;
+
+    color: #d4dce1;
+}
+
+
+/* =====================================================
    SYMBOLS
-========================================================= */
+===================================================== */
 
 .symbols-grid {
     max-width: 1100px;
@@ -1202,51 +802,50 @@ ul {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 30px;
+    gap: 25px;
 }
 
+.symbol-flag,
 .symbol-coat {
-    padding: 35px;
+    min-height: 280px;
 
     display: flex;
 
+    align-items: center;
     justify-content: center;
 
-    align-items: center;
+    padding: 30px;
 
-    min-height: 280px;
-
-    background: var(--gradient);
+    background: #eef1f3;
 }
 
-.symbol-coat img {
-    width: 180px;
-    height: 180px;
+.symbol-flag img {
+    width: 100%;
+    max-height: 230px;
 
     object-fit: contain;
 }
 
-/* =========================================================
+.symbol-coat img {
+    width: 180px;
+    height: 230px;
+
+    object-fit: contain;
+}
+
+
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
 footer {
-    position: relative;
+    padding: 60px 7% 20px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #001f45,
-            #002f67,
-            #004d72
-        );
+    background: #0b1116;
 
     color: white;
-
-    padding: 55px 8% 20px;
 }
 
 .footer-grid {
@@ -1256,71 +855,60 @@ footer {
 
     display: grid;
 
-    grid-template-columns:
-        2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
 
-    gap: 40px;
+    gap: 50px;
 }
 
 .footer-brand img {
-    width: 72px;
-    height: 72px;
+    width: 70px;
+    height: 70px;
 
     object-fit: contain;
 
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .footer-brand h3 {
-    color: white;
-
-    font-size: 20px;
+    margin-bottom: 5px;
 }
 
 .footer-brand p {
-    color: rgba(255, 255, 255, 0.7);
+    color: #98a5ae;
 
-    margin: 4px 0;
+    margin-bottom: 8px;
 }
 
 .footer-brand em {
-    color: #bffff5;
-
-    font-size: 14px;
+    color: #c9d2d8;
 }
 
-.footer-grid h4 {
-    margin-bottom: 12px;
-
-    color: white;
-
-    font-size: 16px;
+footer h4 {
+    margin-bottom: 15px;
 }
 
-.footer-grid a {
+footer a {
     display: block;
 
-    width: fit-content;
+    margin-bottom: 8px;
 
-    margin: 8px 0;
+    color: #aeb9c1;
 
-    color: #ccecff;
-
-    font-size: 14px;
-
-    transition: color 0.2s ease;
+    transition: 0.2s ease;
 }
 
-.footer-grid a:hover {
+footer a:hover {
     color: white;
 }
 
 .footer-bottom {
     max-width: 1200px;
 
-    margin: 35px auto 0;
+    margin: 45px auto 0;
 
-    padding-top: 18px;
+    padding-top: 20px;
+
+    border-top: 1px solid #26313a;
 
     display: flex;
 
@@ -1328,502 +916,130 @@ footer {
 
     gap: 20px;
 
-    flex-wrap: wrap;
+    color: #7f8c95;
 
-    border-top:
-        1px solid rgba(255, 255, 255, 0.15);
-
-    color:
-        rgba(255, 255, 255, 0.65);
-
-    font-size: 12px;
+    font-size: 0.85rem;
 }
 
-/* =========================================================
-   LISTS
-========================================================= */
 
-.section ul {
-    max-width: 850px;
-
-    margin: 20px auto;
-
-    color: var(--muted);
-}
-
-.section li {
-    margin: 8px 0;
-}
-
-/* =========================================================
-   ANIMATION
-========================================================= */
-
-.hidden {
-    opacity: 0;
-
-    transform: translateY(25px);
-
-    transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
-}
-
-.show {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-/* Don't hide content if JS is unavailable */
-.no-js .hidden {
-    opacity: 1;
-
-    transform: none;
-}
-
-/* =========================================================
-   SCROLL TO TOP
-========================================================= */
-
-#scrollTopBtn {
-    position: fixed;
-
-    right: 20px;
-    bottom: 20px;
-
-    width: 46px;
-    height: 46px;
-
-    z-index: 99998;
-
-    display: none;
-
-    border: none;
-
-    border-radius: 50%;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #0066cc,
-            #00c9b7
-        );
-
-    font-size: 19px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 22px rgba(0, 70, 130, 0.25);
-
-    transition:
-        transform 0.25s ease;
-}
-
-#scrollTopBtn:hover {
-    transform: translateY(-4px);
-}
-
-/* =========================================================
+/* =====================================================
    MOBILE
-========================================================= */
+===================================================== */
 
-@media (max-width: 1100px) {
-
-    .navbar {
-        padding-left: 4%;
-        padding-right: 4%;
-    }
-
-    #navMenu {
-        gap: 1px;
-    }
-
-    #navMenu a {
-        padding-left: 8px;
-        padding-right: 8px;
-
-        font-size: 13px;
-    }
-
-    .department-grid {
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr));
-    }
-
-    .government-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
-    .quick-info {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-}
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 
     .navbar {
-        min-height: 72px;
-
-        padding: 10px 5%;
+        padding: 12px 5%;
     }
 
     .menu-button {
         display: block;
     }
 
-    #navMenu {
+    .navbar nav {
+        display: none;
+
         position: absolute;
 
         top: 100%;
-
         left: 0;
+        right: 0;
 
-        width: 100%;
-
-        padding: 12px;
-
-        display: none;
+        padding: 15px;
 
         flex-direction: column;
-
         align-items: stretch;
 
-        gap: 3px;
+        background: white;
 
-        background:
-            linear-gradient(
-                180deg,
-                #003b7a,
-                #0066cc,
-                #008eae
-            );
+        border-bottom: 1px solid #e5e7eb;
 
-        box-shadow:
-            0 12px 25px rgba(0, 40, 80, 0.2);
-
-        border-top:
-            1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.08);
     }
 
-    #navMenu.active {
+    .navbar nav.open {
         display: flex;
     }
 
-    #navMenu a {
+    .navbar nav a {
         width: 100%;
-
-        padding: 13px 15px;
-
-        border-radius: 8px;
-
-        font-size: 15px;
-    }
-
-    #navMenu a::after {
-        display: none;
-    }
-
-    #navMenu a:hover,
-    #navMenu a.active-link {
-        background:
-            rgba(255, 255, 255, 0.12);
-    }
-
-    .hero {
-        min-height: 75vh;
-
-        padding: 80px 6%;
-    }
-
-    .section {
-        padding: 65px 6%;
     }
 
     .nation-grid,
-    .symbols-grid {
-        grid-template-columns: 1fr;
-
-        gap: 30px;
-    }
-
+    .symbols-grid,
     .diplomacy {
-        margin: 40px 6%;
-
-        padding: 45px 35px;
-    }
-
-    .citizenship {
-        margin: 40px 6%;
-
-        padding: 45px 35px;
-    }
-
-    .footer-grid {
-        grid-template-columns:
-            1fr 1fr;
-    }
-}
-
-/* =========================================================
-   PHONE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    body {
-        font-size: 15px;
-    }
-
-    .navbar {
-        padding: 9px 5%;
-
-        min-height: 68px;
-    }
-
-    .brand img {
-        width: 44px;
-        height: 44px;
-    }
-
-    .brand strong {
-        font-size: 18px;
-    }
-
-    .brand small {
-        font-size: 9px;
-    }
-
-    .menu-button {
-        width: 42px;
-        height: 42px;
-
-        font-size: 23px;
-    }
-
-    .hero {
-        min-height: 70vh;
-
-        padding: 70px 5%;
-    }
-
-    .hero-emblem {
-        width: 110px;
-        height: 110px;
-    }
-
-    .hero h1 {
-        font-size: 42px;
-
-        letter-spacing: -1px;
-    }
-
-    .hero-description {
-        font-size: 15px;
-    }
-
-    .motto {
-        font-size: 18px;
-    }
-
-    .section {
-        padding: 55px 5%;
-    }
-
-    .heading {
-        margin-bottom: 35px;
-    }
-
-    .heading h2 {
-        font-size: 31px;
+        grid-template-columns: 1fr;
     }
 
     .quick-info {
-        padding: 35px 5%;
-
-        grid-template-columns: 1fr;
-
-        gap: 14px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .government-grid,
+    .department-grid,
+    .vision-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .government-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .citizenship {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 560px;
+
+        padding: 75px 5%;
+    }
+
+    .hero-emblem {
+        width: 100px;
+        height: 100px;
+    }
+
+    .section {
+        padding: 65px 5%;
+    }
+
+    .quick-info {
+        grid-template-columns: 1fr;
+    }
+
     .department-grid,
     .vision-grid {
         grid-template-columns: 1fr;
     }
 
-    .government-card {
-        padding: 25px;
-    }
-
-    .department {
-        padding: 25px;
-    }
-
-    .vision-table {
-        display: block;
-
-        overflow-x: auto;
-
-        white-space: normal;
-    }
-
-    .vision-table th,
-    .vision-table td {
-        min-width: 140px;
-
-        padding: 13px;
-    }
-
-    .diplomacy {
-        margin: 30px 5%;
-
-        padding: 38px 25px;
-
-        flex-direction: column;
-
-        text-align: center;
-    }
-
-    .diplomacy-content h2 {
-        font-size: 32px;
-    }
-
-    .globe {
-        min-width: auto;
-
-        font-size: 80px;
-    }
-
-    .citizenship {
-        margin: 30px 5%;
-
-        padding: 38px 25px;
-
-        flex-direction: column;
-
-        text-align: center;
-    }
-
-    .citizenship h2 {
-        font-size: 31px;
-    }
-
-    .button {
-        width: 100%;
-
-        margin: 5px 0;
-    }
-
-    .hero-buttons {
-        width: 100%;
-    }
-
     .footer-grid {
         grid-template-columns: 1fr;
-
-        gap: 28px;
     }
 
     .footer-bottom {
         flex-direction: column;
-
-        gap: 5px;
     }
 
-    .flag-container img,
-    .symbol-flag img {
-        height: 200px;
+    .roadmap {
+        padding: 20px;
     }
 
-    .symbol-coat {
-        min-height: 230px;
+    .diplomacy {
+        padding: 65px 5%;
     }
 
-    .symbol-coat img {
-        width: 140px;
-        height: 140px;
-    }
-}
-
-/* =========================================================
-   EXTRA SMALL PHONES
-========================================================= */
-
-@media (max-width: 380px) {
-
-    .brand strong {
-        font-size: 16px;
+    .globe {
+        font-size: 5rem;
     }
 
-    .brand small {
-        display: none;
-    }
-
-    .hero h1 {
-        font-size: 35px;
-    }
-
-    .heading h2 {
-        font-size: 28px;
-    }
-
-    .section {
-        padding-left: 4%;
-        padding-right: 4%;
-    }
-}
-
-/* =========================================================
-   ACCESSIBILITY
-========================================================= */
-
-a:focus-visible,
-button:focus-visible {
-    outline: 3px solid #7ffff0;
-
-    outline-offset: 3px;
-}
-
-::selection {
-    color: white;
-
-    background: var(--blue);
-}
-
-/* =========================================================
-   PRINT
-========================================================= */
-
-@media print {
-
-    .navbar,
-    .menu-button,
-    #scrollTopBtn,
-    .button {
-        display: none !important;
-    }
-
-    body {
-        background: white;
-
-        color: black;
-    }
-
-    .hero,
-    .government,
-    .citizenship {
-        color: black;
-
-        background: white !important;
-    }
 }
