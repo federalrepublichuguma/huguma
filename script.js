@@ -217,16 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 "./constitution.html"
         },
 
-        {
-            title: "Berita Huguma",
-            description:
-                "Official news and announcements from the Federal Republic of Huguma.",
-            keywords:
-                "berita news announcement latest national government events",
-            url:
-                "./berita.html"
-        }
-
     ];
 
 
