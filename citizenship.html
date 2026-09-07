@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,122 +13,333 @@
     content="E-Citizenship Programme of the Federal Republic of Huguma"
 >
 
-<link rel="stylesheet" href="./style.css">
-</head>
+<link
+    rel="icon"
+    type="image/png"
+    href="./IMG_1382.png"
+>
 
+<link
+    rel="stylesheet"
+    href="./style.css"
+>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
 
 <body>
 
+<!-- =====================================================
+     SIDEBAR / NAVIGATION RAIL
+===================================================== -->
 
-<!-- NAVBAR -->
+<aside
+    class="sidebar"
+    id="sidebar"
+>
 
-<header class="navbar">
+    <div class="sidebar-brand">
 
-    <a href="./index.html" class="brand">
+        <a href="./index.html">
 
-        <img
-            src="./IMG_1382.png"
-            alt="Coat of Arms of Huguma"
-        >
+            <img
+                src="./IMG_1382.png"
+                alt="Coat of Arms of Huguma"
+                width="58"
+                height="58"
+            >
 
-        <div>
-            <strong>HUGUMA</strong>
-            <small>Federal Republic</small>
-        </div>
+            <div class="brand-text">
 
-    </a>
+                <strong>HUGUMA</strong>
 
+                <span>
+                    Federal Republic
+                </span>
 
-    <button
-        id="menuButton"
-        class="menu-button"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-    >
-        ☰
-    </button>
+            </div>
 
+        </a>
 
-    <nav id="navMenu">
+    </div>
 
-        <a href="./index.html">Home</a>
+    <div class="sidebar-label">
+        GOVERNMENT PORTAL
+    </div>
 
-        <a href="./about.html">About</a>
+    <nav class="sidebar-nav">
 
-        <a href="./government.html">Government</a>
+        <a href="./index.html" class="nav-item">
+            <i data-lucide="house"></i>
+            <span>Home</span>
+        </a>
 
-        <a href="./ministers.html">Federal Ministers</a>
+        <a href="./about.html" class="nav-item">
+            <i data-lucide="circle-info"></i>
+            <span>About Huguma</span>
+        </a>
 
-        <a href="./vision2034.html">HUGUMA NAHDAH</a>
+        <a href="./government.html" class="nav-item">
+            <i data-lucide="landmark"></i>
+            <span>Government</span>
+        </a>
 
-        <a href="./diplomacy.html">Diplomacy</a>
+        <a href="./ministers.html" class="nav-item">
+            <i data-lucide="users"></i>
+            <span>Federal Ministers</span>
+        </a>
 
-        <a href="./citizenship.html">Citizenship</a>
+        <a href="./vision2034.html" class="nav-item">
+            <i data-lucide="chart-no-axes-combined"></i>
+            <span>NAHDAH 2034</span>
+        </a>
+
+        <a href="./diplomacy.html" class="nav-item">
+            <i data-lucide="globe-2"></i>
+            <span>Diplomacy</span>
+        </a>
+
+        <a href="./citizenship.html" class="nav-item active">
+            <i data-lucide="id-card"></i>
+            <span>Citizenship</span>
+        </a>
 
     </nav>
 
-</header>
+    <div class="sidebar-bottom">
 
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <img
-            src="./IMG_1382.png"
-            class="hero-emblem"
-            alt="Coat of Arms of Huguma"
+        <button
+            id="searchButton"
+            class="sidebar-search"
+            type="button"
         >
+            <i data-lucide="search"></i>
+            <span>Search Huguma</span>
+        </button>
 
-        <p class="eyebrow">
-            FEDERAL REPUBLIC OF HUGUMA
-        </p>
+        <div class="portal-status">
 
-        <h1>
-            E-Citizenship
-        </h1>
+            <span class="status-dot"></span>
 
-        <p class="motto">
+            <div>
+
+                <strong>
+                    Official Portal
+                </strong>
+
+                <small>
+                    Federal Government
+                </small>
+
+            </div>
+
+        </div>
+
+        <div class="sidebar-motto">
             Allah Bersama Huguma
+        </div>
+
+    </div>
+
+</aside>
+
+<!-- =====================================================
+     MOBILE NAVIGATION
+===================================================== -->
+
+<button
+    id="mobileSidebarButton"
+    class="mobile-sidebar-button"
+    type="button"
+    aria-label="Open navigation"
+>
+    <i data-lucide="menu"></i>
+</button>
+
+<div
+    id="sidebarOverlay"
+    class="sidebar-overlay"
+></div>
+
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+
+<main class="site-content">
+
+<!-- =====================================================
+     SEARCH PANEL
+===================================================== -->
+
+<div
+    id="searchPanel"
+    class="search-panel"
+>
+
+    <div class="search-container">
+
+        <button
+            id="closeSearch"
+            class="close-search"
+            type="button"
+            aria-label="Close search"
+        >
+            ×
+        </button>
+
+        <span class="search-label">
+            HUGUMA DIGITAL PORTAL
+        </span>
+
+        <h2>
+            Search Huguma
+        </h2>
+
+        <p>
+            Search government, national information,
+            ministries, diplomacy, citizenship and
+            development programmes.
         </p>
 
-        <p class="hero-description">
+        <div class="search-box">
 
-            Become part of the growing digital
-            community of the Federal Republic
-            of Huguma.
+            <i data-lucide="search"></i>
 
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Huguma..."
+                autocomplete="off"
+            >
+
+        </div>
+
+        <div id="searchResults"></div>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<section class="page-header">
+
+    <span>
+        FEDERAL REPUBLIC OF HUGUMA
+    </span>
+
+    <h1>
+        E-Citizenship
+    </h1>
+
+    <p>
+        Become part of the growing digital community
+        of the Federal Republic of Huguma.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a
+            href="./Constitution.pdf"
+            target="_blank"
+            rel="noopener"
+            class="button button-light"
+        >
+            <i data-lucide="scroll-text"></i>
+            View Constitution
+        </a>
+
+        <a
+            href="https://forms.gle/nn8QzxNcRyvb53xFA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button button-outline"
+        >
+            <i data-lucide="file-pen-line"></i>
+            Apply for Citizenship
+        </a>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     INTRODUCTION
+===================================================== -->
+
+<section class="section">
+
+    <div class="heading">
+
+        <span>
+            E-CITIZENSHIP PROGRAMME
+        </span>
+
+        <h2>
+            Join the Republic
+        </h2>
+
+        <p>
+            Huguma's E-Citizenship programme allows
+            eligible applicants to become part of the
+            Republic's growing digital national community.
         </p>
 
+    </div>
 
-        <div class="hero-buttons">
+    <div class="vision-grid">
 
-            <!-- VIEW PDF -->
+        <div class="vision-card">
 
-            <a
-                href="./Constitution.pdf"
-                target="_blank"
-                rel="noopener"
-                class="button button-light"
-            >
-                📜 View Constitution
-            </a>
+            <span>01</span>
 
+            <i data-lucide="book-open-check"></i>
 
-            <!-- APPLY -->
+            <h3>
+                Read the Constitution
+            </h3>
 
-            <a
-                href="https://forms.gle/nn8QzxNcRyvb53xFA"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="button button-outline"
-            >
-                📝 Apply for Citizenship
-            </a>
+            <p>
+                Review the Constitution of Huguma before
+                submitting your application.
+            </p>
+
+        </div>
+
+        <div class="vision-card">
+
+            <span>02</span>
+
+            <i data-lucide="file-pen-line"></i>
+
+            <h3>
+                Submit Application
+            </h3>
+
+            <p>
+                Complete the official E-Citizenship
+                application form accurately.
+            </p>
+
+        </div>
+
+        <div class="vision-card">
+
+            <span>03</span>
+
+            <i data-lucide="badge-check"></i>
+
+            <h3>
+                Application Review
+            </h3>
+
+            <p>
+                Your application will be reviewed
+                according to the Republic's requirements.
+            </p>
 
         </div>
 
@@ -135,11 +347,11 @@
 
 </section>
 
+<!-- =====================================================
+     CONSTITUTION
+===================================================== -->
 
-
-<!-- CONSTITUTION -->
-
-<section class="section">
+<section class="section vision">
 
     <div class="heading">
 
@@ -158,14 +370,12 @@
 
     </div>
 
-
     <div class="nation-grid">
-
 
         <div class="nation-text">
 
             <h3>
-                📜 Official Constitution
+                Official Constitution
             </h3>
 
             <p>
@@ -176,39 +386,34 @@
 
             <p>
                 You can open the PDF directly in
-                your browser and read it before
-                applying.
+                your browser or download a copy
+                before applying.
             </p>
 
+            <div class="hero-buttons">
 
-            <!-- THIS OPENS THE PDF -->
+                <a
+                    href="./Constitution.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    class="button gradient-button"
+                >
+                    <i data-lucide="book-open"></i>
+                    View Constitution
+                </a>
 
-            <a
-                href="./Constitution.pdf"
-                target="_blank"
-                rel="noopener"
-                class="button gradient-button"
-            >
-                📖 View Constitution
-            </a>
+                <a
+                    href="./Constitution.pdf"
+                    download="Constitution-of-Huguma.pdf"
+                    class="button button-outline"
+                >
+                    <i data-lucide="download"></i>
+                    Download Constitution
+                </a>
 
-
-            <br><br>
-
-
-            <!-- THIS DOWNLOADS THE PDF -->
-
-            <a
-                href="./Constitution.pdf"
-                download="Constitution-of-Huguma.pdf"
-                class="button gradient-button"
-            >
-                📥 Download Constitution
-            </a>
+            </div>
 
         </div>
-
-
 
         <div class="symbol-card">
 
@@ -217,10 +422,11 @@
                 <img
                     src="./IMG_1382.png"
                     alt="Coat of Arms of Huguma"
+                    loading="lazy"
+                    decoding="async"
                 >
 
             </div>
-
 
             <div class="card-content">
 
@@ -244,11 +450,15 @@
 
 </section>
 
-
-
-<!-- APPLICATION -->
+<!-- =====================================================
+     APPLICATION
+===================================================== -->
 
 <section class="citizenship">
+
+    <div class="citizenship-icon">
+        <i data-lucide="user-plus"></i>
+    </div>
 
     <div>
 
@@ -261,113 +471,118 @@
         </h2>
 
         <p>
-            Read the Constitution first,
-            then submit your E-Citizenship
-            application.
+            Read the Constitution first, then submit
+            your official E-Citizenship application.
         </p>
 
     </div>
 
-
-    <div class="hero-buttons">
-
-        <a
-            href="./Constitution.pdf"
-            target="_blank"
-            rel="noopener"
-            class="button button-light"
-        >
-            📜 View Constitution
-        </a>
-
-
-        <a
-            href="https://forms.gle/nn8QzxNcRyvb53xFA"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button button-light"
-        >
-            📝 Apply for Citizenship
-        </a>
-
-    </div>
+    <a
+        href="https://forms.gle/nn8QzxNcRyvb53xFA"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="citizenship-button"
+    >
+        Apply for Citizenship
+        <i data-lucide="arrow-up-right"></i>
+    </a>
 
 </section>
 
-
-
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-    <div class="footer-grid">
-
+    <div class="footer-top">
 
         <div class="footer-brand">
 
             <img
                 src="./IMG_1382.png"
                 alt="Coat of Arms of Huguma"
+                width="60"
+                height="60"
+                loading="lazy"
+                decoding="async"
             >
 
-            <h3>
-                Federal Republic of Huguma
-            </h3>
+            <div>
 
-            <p>
-                Official Government Website
-            </p>
+                <h3>
+                    Federal Republic of Huguma
+                </h3>
 
-            <em>
-                Allah Bersama Huguma
-            </em>
+                <p>
+                    Official Government Portal
+                </p>
 
-        </div>
+                <em>
+                    Allah Bersama Huguma
+                </em>
 
-
-        <div>
-
-            <h4>
-                Government
-            </h4>
-
-            <a href="./index.html">Home</a>
-
-            <a href="./about.html">About</a>
-
-            <a href="./government.html">Government</a>
-
-            <a href="./ministers.html">Federal Ministers</a>
+            </div>
 
         </div>
 
+        <div class="footer-links">
 
-        <div>
+            <div>
 
-            <h4>
-                Republic
-            </h4>
+                <h4>
+                    Government
+                </h4>
 
-            <a href="./vision2034.html">
-                HUGUMA NAHDAH 2034
-            </a>
+                <a href="./government.html">
+                    Government
+                </a>
 
-            <a href="./diplomacy.html">
-                Diplomacy
-            </a>
+                <a href="./ministers.html">
+                    Federal Ministers
+                </a>
 
-            <a href="./constitution.html">
-                Constitution
-            </a>
+                <a href="./vision2034.html">
+                    NAHDAH 2034
+                </a>
 
-            <a href="./citizenship.html">
-                Citizenship
-            </a>
+            </div>
+
+            <div>
+
+                <h4>
+                    Republic
+                </h4>
+
+                <a href="./about.html">
+                    About
+                </a>
+
+                <a href="./diplomacy.html">
+                    Diplomacy
+                </a>
+
+                <a href="./citizenship.html">
+                    Citizenship
+                </a>
+
+            </div>
+
+            <div>
+
+                <h4>
+                    Legal
+                </h4>
+
+                <a href="./Constitution.pdf" target="_blank" rel="noopener">
+                    Constitution
+                </a>
+
+            </div>
 
         </div>
 
     </div>
-
 
     <div class="footer-bottom">
 
@@ -377,15 +592,18 @@
         </p>
 
         <p>
-            Official Government Portal.
+            Allah Bersama Huguma
         </p>
 
     </div>
 
 </footer>
 
+</main>
 
+<!-- Lightweight setup: one icon library and one local JS file. -->
 <script src="./script.js"></script>
 
 </body>
+
 </html>
