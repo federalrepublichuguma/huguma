@@ -3,96 +3,245 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>Federal Republic of Huguma</title>
+    <title>Federal Republic of Huguma</title>
 
-<meta
-    name="description"
-    content="Official Government Website of the Federal Republic of Huguma"
->
+    <meta
+        name="description"
+        content="Official Government Website of the Federal Republic of Huguma"
+    >
 
-<link rel="icon" type="image/png" href="./IMG_1382.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="./IMG_1382.png"
+    >
 
-<link rel="stylesheet" href="./style.css">
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
 
-<script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
 </head>
+
 
 <body>
 
 
 <!-- =====================================================
-     NAVBAR
+     SIDEBAR
 ===================================================== -->
 
-<header class="navbar">
+<aside
+    class="sidebar"
+    id="sidebar"
+>
 
-    <a href="./index.html" class="brand">
+    <div class="sidebar-brand">
 
-        <img
-            src="./IMG_1382.png"
-            alt="Coat of Arms"
+        <a href="./index.html">
+
+            <img
+                src="./IMG_1382.png"
+                alt="Coat of Arms of Huguma"
+            >
+
+            <div class="brand-text">
+
+                <strong>HUGUMA</strong>
+
+                <span>
+                    Federal Republic
+                </span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <div class="sidebar-label">
+        GOVERNMENT PORTAL
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+
+        <a
+            href="./index.html"
+            class="nav-item active"
         >
 
-        <div>
-            <strong>HUGUMA</strong>
-            <small>Federal Republic</small>
-        </div>
+            <i data-lucide="house"></i>
 
-    </a>
+            <span>Home</span>
 
-
-    <button
-        id="menuButton"
-        class="menu-button"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-    >
-        ☰
-    </button>
+        </a>
 
 
-    <nav id="navMenu">
+        <a
+            href="./about.html"
+            class="nav-item"
+        >
 
-        <a href="./index.html">Home</a>
+            <i data-lucide="circle-info"></i>
 
-        <a href="./about.html">About</a>
+            <span>About Huguma</span>
 
-        <a href="./government.html">Government</a>
-
-        <a href="./ministers.html">Federal Ministers</a>
-
-        <a href="./vision2034.html">HUGUMA NAHDAH</a>
-
-        <a href="./diplomacy.html">Diplomacy</a>
-
-        <a href="./citizenship.html">Citizenship</a>
+        </a>
 
 
-        <!-- SEARCH BUTTON -->
+        <a
+            href="./government.html"
+            class="nav-item"
+        >
+
+            <i data-lucide="landmark"></i>
+
+            <span>Government</span>
+
+        </a>
+
+
+        <a
+            href="./ministers.html"
+            class="nav-item"
+        >
+
+            <i data-lucide="users"></i>
+
+            <span>Federal Ministers</span>
+
+        </a>
+
+
+        <a
+            href="./vision2034.html"
+            class="nav-item"
+        >
+
+            <i data-lucide="chart-no-axes-combined"></i>
+
+            <span>NAHDAH 2034</span>
+
+        </a>
+
+
+        <a
+            href="./diplomacy.html"
+            class="nav-item"
+        >
+
+            <i data-lucide="globe-2"></i>
+
+            <span>Diplomacy</span>
+
+        </a>
+
+
+        <a
+            href="./citizenship.html"
+            class="nav-item"
+        >
+
+            <i data-lucide="id-card"></i>
+
+            <span>Citizenship</span>
+
+        </a>
+
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
 
         <button
             id="searchButton"
-            class="nav-search-button"
+            class="sidebar-search"
             type="button"
-            aria-label="Search Huguma"
         >
 
             <i data-lucide="search"></i>
 
-            Search
+            <span>
+                Search Huguma
+            </span>
 
         </button>
 
-    </nav>
 
-</header>
+        <div class="portal-status">
 
+            <span class="status-dot"></span>
+
+            <div>
+
+                <strong>
+                    Official Portal
+                </strong>
+
+                <small>
+                    Federal Government
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-motto">
+
+            Allah Bersama Huguma
+
+        </div>
+
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MOBILE NAVIGATION
+===================================================== -->
+
+<button
+    id="mobileSidebarButton"
+    class="mobile-sidebar-button"
+    type="button"
+    aria-label="Open navigation"
+>
+
+    <i data-lucide="menu"></i>
+
+</button>
+
+
+<div
+    id="sidebarOverlay"
+    class="sidebar-overlay"
+></div>
+
+
+
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+
+<main class="site-content">
 
 
 <!-- =====================================================
@@ -128,8 +277,9 @@
 
 
         <p>
-            Search government, news, laws, ministries
-            and national information.
+            Search government, national information,
+            ministries, diplomacy, citizenship and
+            development programmes.
         </p>
 
 
@@ -149,6 +299,7 @@
 
         <div id="searchResults"></div>
 
+
     </div>
 
 </div>
@@ -159,9 +310,25 @@
      HERO
 ===================================================== -->
 
-<section class="hero" id="home">
+<section
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-decoration hero-decoration-one"></div>
+    <div class="hero-decoration hero-decoration-two"></div>
+
 
     <div class="hero-content">
+
+
+        <div class="official-badge">
+
+            <span></span>
+
+            OFFICIAL PORTAL OF THE FEDERAL GOVERNMENT
+
+        </div>
 
 
         <img
@@ -172,13 +339,15 @@
 
 
         <p class="eyebrow">
-            OFFICIAL GOVERNMENT WEBSITE
+            FEDERAL REPUBLIC OF HUGUMA
         </p>
 
 
         <h1>
-            Federal Republic<br>
-            of Huguma
+
+            Government for a
+            <span>Digital Republic.</span>
+
         </h1>
 
 
@@ -192,9 +361,9 @@
             Welcome to the Official Government Portal
             of the Federal Republic of Huguma.
 
-            A united digital republic committed to
-            peace, sustainable development, innovation
-            and international friendship.
+            Discover our government, national institutions,
+            development programmes, diplomacy and
+            E-Citizenship services.
 
         </p>
 
@@ -203,139 +372,92 @@
 
 
             <a
-                href="./vision2034.html"
-                class="button button-light"
+                href="./government.html"
+                class="button primary-button"
             >
-                HUGUMA NAHDAH 2034
+
+                Explore Government
+
+                <i data-lucide="arrow-right"></i>
+
             </a>
 
 
             <a
                 href="./citizenship.html"
-                class="button button-outline"
+                class="button secondary-button"
             >
-                Become an E-Citizen
+
+                <i data-lucide="id-card"></i>
+
+                E-Citizenship
+
             </a>
 
 
         </div>
 
+
     </div>
 
-</section>
 
+    <div class="hero-side-card">
 
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section
-    class="section"
-    id="about"
->
-
-    <div class="heading">
-
-
-        <span>
-            ABOUT THE REPUBLIC
+        <span class="side-card-label">
+            THE REPUBLIC
         </span>
 
 
-        <h2>
-            Welcome to Huguma
-        </h2>
+        <img
+            src="./IMG_0838.png"
+            alt="Flag of Huguma"
+        >
 
 
-        <p>
+        <div class="hero-side-details">
 
-            The Federal Republic of Huguma is a
-            modern digital federal republic built
-            upon community, diplomacy and
-            responsible governance.
+            <div>
 
-        </p>
+                <small>
+                    CAPITAL
+                </small>
 
-
-    </div>
-
-
-    <div class="nation-grid">
-
-
-        <div class="nation-text">
-
-
-            <h3>
-                The Federal Republic of Huguma
-            </h3>
-
-
-            <p>
-
-                Huguma is a digital federal republic
-                with national institutions, executive
-                government and an E-Citizenship
-                programme.
-
-            </p>
-
-
-            <p>
-
-                Huguma promotes friendship,
-                innovation, sustainable development
-                and peaceful diplomacy.
-
-            </p>
-
-
-            <p>
-                Capital City: Bandar Mewar
-            </p>
-
-
-        </div>
-
-
-
-        <div class="flag-card">
-
-
-            <div class="flag-container">
-
-                <img
-                    src="./IMG_0838.png"
-                    alt="Flag of Huguma"
-                >
+                <strong>
+                    Bandar Mewar
+                </strong>
 
             </div>
 
 
-            <div class="card-content">
+            <div>
+
+                <small>
+                    GOVERNMENT
+                </small>
+
+                <strong>
+                    Federal Republic
+                </strong>
+
+            </div>
 
 
-                <span>
+            <div>
+
+                <small>
                     NATIONAL FLAG
-                </span>
+                </small>
 
-
-                <h3>
+                <strong>
                     Belang Sentosa
-                </h3>
-
-
-                <p>
-                    Official National Flag of Huguma.
-                </p>
-
+                </strong>
 
             </div>
 
         </div>
 
     </div>
+
 
 </section>
 
@@ -350,54 +472,47 @@
 
     <div class="info-card">
 
-
         <div class="info-icon">
 
             <i data-lucide="landmark"></i>
 
         </div>
 
+        <div>
 
-        <h3>
-            Capital
-        </h3>
+            <span>Capital City</span>
 
-
-        <p>
-            Bandar Mewar
-        </p>
-
-
-    </div>
-
-
-
-    <div class="info-card">
-
-
-        <div class="info-icon">
-
-            <i data-lucide="users"></i>
+            <strong>
+                Bandar Mewar
+            </strong>
 
         </div>
 
-
-        <h3>
-            Government
-        </h3>
-
-
-        <p>
-            Federal Republic
-        </p>
-
-
     </div>
-
 
 
     <div class="info-card">
 
+        <div class="info-icon">
+
+            <i data-lucide="building-2"></i>
+
+        </div>
+
+        <div>
+
+            <span>Government</span>
+
+            <strong>
+                Federal Republic
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-card">
 
         <div class="info-icon">
 
@@ -405,14 +520,73 @@
 
         </div>
 
+        <div>
 
-        <h3>
-            E-Citizenship
-        </h3>
+            <span>E-Citizenship</span>
+
+            <strong>
+                Open Worldwide
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <div class="info-icon">
+
+            <i data-lucide="shield-check"></i>
+
+        </div>
+
+        <div>
+
+            <span>National Motto</span>
+
+            <strong>
+                Allah Bersama Huguma
+            </strong>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    class="section"
+    id="about"
+>
+
+
+    <div class="section-heading">
+
+
+        <span class="section-label">
+            ABOUT THE REPUBLIC
+        </span>
+
+
+        <h2>
+            Welcome to Huguma
+        </h2>
 
 
         <p>
-            Open Worldwide
+
+            A modern digital federal republic founded
+            upon responsible governance, community,
+            diplomacy and sustainable development.
+
         </p>
 
 
@@ -420,24 +594,89 @@
 
 
 
-    <div class="info-card">
+    <div class="about-grid">
 
 
-        <div class="info-icon">
+        <div class="about-main">
 
-            <i data-lucide="shield"></i>
+
+            <div class="about-number">
+                01
+            </div>
+
+
+            <h3>
+                The Federal Republic of Huguma
+            </h3>
+
+
+            <p>
+
+                Huguma is a digital federal republic
+                with national institutions, executive
+                government and an E-Citizenship programme.
+
+            </p>
+
+
+            <p>
+
+                The Republic promotes international
+                friendship, innovation, responsible
+                governance, sustainable development
+                and peaceful diplomacy.
+
+            </p>
+
+
+            <a
+                href="./about.html"
+                class="text-link"
+            >
+
+                Discover the Republic
+
+                <i data-lucide="arrow-up-right"></i>
+
+            </a>
+
 
         </div>
 
 
-        <h3>
-            Motto
-        </h3>
+
+        <div class="flag-card">
 
 
-        <p>
-            Allah Bersama Huguma
-        </p>
+            <div class="flag-image">
+
+                <img
+                    src="./IMG_0838.png"
+                    alt="Flag of Huguma"
+                >
+
+            </div>
+
+
+            <div class="flag-content">
+
+                <span>
+                    NATIONAL FLAG
+                </span>
+
+                <h3>
+                    Belang Sentosa
+                </h3>
+
+                <p>
+                    Official National Flag of the
+                    Federal Republic of Huguma.
+                </p>
+
+            </div>
+
+
+        </div>
 
 
     </div>
@@ -452,30 +691,37 @@
 ===================================================== -->
 
 <section
-    class="government section"
+    class="government-section"
     id="government"
 >
 
 
-    <div class="heading light">
+    <div class="government-header">
 
 
-        <span>
-            FEDERAL GOVERNMENT
-        </span>
+        <div>
+
+            <span class="section-label light-label">
+                FEDERAL GOVERNMENT
+            </span>
+
+            <h2>
+                Leadership of the Republic
+            </h2>
+
+        </div>
 
 
-        <h2>
-            Government of Huguma
-        </h2>
+        <a
+            href="./ministers.html"
+            class="government-link"
+        >
 
+            View all ministers
 
-        <p>
+            <i data-lucide="arrow-right"></i>
 
-            The Federal Government administers
-            the affairs and institutions of the Republic.
-
-        </p>
+        </a>
 
 
     </div>
@@ -487,21 +733,25 @@
 
         <div class="government-card">
 
+            <span class="office-number">
+                01
+            </span>
+
+            <div class="office-icon">
+                <i data-lucide="badge-check"></i>
+            </div>
 
             <small>
-                01
+                OFFICE OF THE PRESIDENT
             </small>
-
 
             <h3>
                 President
             </h3>
 
-
             <strong>
                 Ammar Ziqrie
             </strong>
-
 
             <p>
 
@@ -510,28 +760,31 @@
 
             </p>
 
-
         </div>
 
 
 
         <div class="government-card">
 
+            <span class="office-number">
+                02
+            </span>
+
+            <div class="office-icon">
+                <i data-lucide="briefcase-business"></i>
+            </div>
 
             <small>
-                02
+                FEDERAL ADMINISTRATION
             </small>
-
 
             <h3>
                 Prime Minister
             </h3>
 
-
             <strong>
                 Nooby Taisoech
             </strong>
-
 
             <p>
 
@@ -540,36 +793,38 @@
 
             </p>
 
-
         </div>
 
 
 
         <div class="government-card">
 
+            <span class="office-number">
+                03
+            </span>
+
+            <div class="office-icon">
+                <i data-lucide="heart-pulse"></i>
+            </div>
 
             <small>
-                03
+                FEDERAL MINISTRY
             </small>
-
 
             <h3>
                 Minister of Health
             </h3>
 
-
             <strong>
                 Azuwairie
             </strong>
 
-
             <p>
 
-                Responsible for health affairs
-                and public health administration.
+                Responsible for health affairs and
+                public health administration.
 
             </p>
-
 
         </div>
 
@@ -577,21 +832,25 @@
 
         <div class="government-card">
 
+            <span class="office-number">
+                04
+            </span>
+
+            <div class="office-icon">
+                <i data-lucide="chart-column-increasing"></i>
+            </div>
 
             <small>
-                04
+                FEDERAL MINISTRY
             </small>
-
 
             <h3>
                 Minister of Economy
             </h3>
 
-
             <strong>
                 Amni Ufairah
             </strong>
-
 
             <p>
 
@@ -600,28 +859,31 @@
 
             </p>
 
-
         </div>
 
 
 
         <div class="government-card">
 
+            <span class="office-number">
+                05
+            </span>
+
+            <div class="office-icon">
+                <i data-lucide="construction"></i>
+            </div>
 
             <small>
-                05
+                FEDERAL MINISTRY
             </small>
 
-
             <h3>
-                Minister of Development and Infrastructure
+                Development & Infrastructure
             </h3>
-
 
             <strong>
                 Ammar Ziqrie
             </strong>
-
 
             <p>
 
@@ -630,28 +892,31 @@
 
             </p>
 
-
         </div>
 
 
 
         <div class="government-card">
 
+            <span class="office-number">
+                06
+            </span>
+
+            <div class="office-icon">
+                <i data-lucide="globe"></i>
+            </div>
 
             <small>
-                06
+                FEDERAL MINISTRY
             </small>
 
-
             <h3>
-                Minister of Foreign Affairs
+                Foreign Affairs
             </h3>
-
 
             <strong>
                 Nooby Taisoech
             </strong>
-
 
             <p>
 
@@ -660,28 +925,31 @@
 
             </p>
 
-
         </div>
 
 
 
         <div class="government-card">
 
+            <span class="office-number">
+                07
+            </span>
+
+            <div class="office-icon">
+                <i data-lucide="cpu"></i>
+            </div>
 
             <small>
-                07
+                FEDERAL MINISTRY
             </small>
 
-
             <h3>
-                Minister of Technology
+                Technology
             </h3>
-
 
             <strong>
                 Abdul Moeez
             </strong>
-
 
             <p>
 
@@ -690,43 +958,49 @@
 
             </p>
 
-
         </div>
 
 
     </div>
+
 
 </section>
 
 
 
 <!-- =====================================================
-     HUGUMA NAHDAH 2034
+     NAHDAH 2034
 ===================================================== -->
 
 <section
-    class="section"
+    class="section nahdah-section"
     id="vision"
 >
 
 
-    <div class="heading">
+    <div class="nahdah-title">
 
 
-        <span>
-            NATIONAL DEVELOPMENT PLAN
-        </span>
+        <div>
+
+            <span class="section-label">
+                NATIONAL DEVELOPMENT PLAN
+            </span>
 
 
-        <h2>
-            HUGUMA NAHDAH 2034
-        </h2>
+            <h2>
+                HUGUMA<br>
+                <span>NAHDAH 2034</span>
+            </h2>
+
+        </div>
 
 
         <p>
 
-            Towards a strong, sustainable and
-            connected Federal Republic.
+            Towards a strong, sustainable, modern
+            and internationally connected
+            Federal Republic.
 
         </p>
 
@@ -740,15 +1014,13 @@
 
         <div class="vision-card">
 
+            <span>01</span>
+
+            <i data-lucide="users"></i>
 
             <h3>
-
-                <i data-lucide="users"></i>
-
                 500 E-Citizens
-
             </h3>
-
 
             <p>
 
@@ -757,47 +1029,38 @@
 
             </p>
 
-
         </div>
-
 
 
         <div class="vision-card">
 
+            <span>02</span>
+
+            <i data-lucide="leaf"></i>
 
             <h3>
-
-                <i data-lucide="leaf"></i>
-
                 Sustainable Economy
-
             </h3>
-
 
             <p>
 
                 Develop a sustainable digital economy
-                through innovation, trade and
-                public services.
+                through innovation, trade and public services.
 
             </p>
-
 
         </div>
 
 
-
         <div class="vision-card">
 
+            <span>03</span>
+
+            <i data-lucide="landmark"></i>
 
             <h3>
-
-                <i data-lucide="landmark"></i>
-
                 Modern Government
-
             </h3>
-
 
             <p>
 
@@ -806,46 +1069,38 @@
 
             </p>
 
-
         </div>
-
 
 
         <div class="vision-card">
 
+            <span>04</span>
+
+            <i data-lucide="globe"></i>
 
             <h3>
-
-                <i data-lucide="globe"></i>
-
                 International Diplomacy
-
             </h3>
-
 
             <p>
 
-                Build friendship treaties and
-                diplomatic partnerships worldwide.
+                Build friendship treaties and diplomatic
+                partnerships worldwide.
 
             </p>
-
 
         </div>
 
 
-
         <div class="vision-card">
 
+            <span>05</span>
+
+            <i data-lucide="building-2"></i>
 
             <h3>
-
-                <i data-lucide="building-2"></i>
-
                 Presidential Whitehouse
-
             </h3>
-
 
             <p>
 
@@ -855,11 +1110,23 @@
 
             </p>
 
-
         </div>
 
 
     </div>
+
+
+    <a
+        href="./vision2034.html"
+        class="nahdah-button"
+    >
+
+        Explore NAHDAH 2034
+
+        <i data-lucide="arrow-right"></i>
+
+    </a>
+
 
 </section>
 
@@ -870,44 +1137,46 @@
 ===================================================== -->
 
 <section
-    class="citizenship"
+    class="citizenship-section"
     id="citizenship"
 >
 
 
-    <div>
+    <div class="citizenship-icon">
 
-
-        <span>
-            BECOME AN E-CITIZEN
-        </span>
-
-
-        <h2>
-            Citizenship Programme
-        </h2>
-
-
-        <p>
-
-            Join the Federal Republic of Huguma
-            as an official E-Citizen.
-
-        </p>
-
+        <i data-lucide="id-card"></i>
 
     </div>
 
 
+    <div class="citizenship-content">
+
+        <span>
+            E-CITIZENSHIP
+        </span>
+
+        <h2>
+            Become part of Huguma.
+        </h2>
+
+        <p>
+
+            Join the Federal Republic of Huguma
+            through our digital E-Citizenship programme.
+
+        </p>
+
+    </div>
+
 
     <a
         href="./citizenship.html"
-        class="button button-light"
+        class="citizenship-button"
     >
 
-        <i data-lucide="id-card"></i>
+        Citizenship Portal
 
-        Citizenship
+        <i data-lucide="arrow-right"></i>
 
     </a>
 
@@ -917,35 +1186,17 @@
 
 
 <!-- =====================================================
-     BERITA HUGUMA NEWSLETTER
+     NEWSLETTER
 ===================================================== -->
 
-<section class="newsletter section" id="newsletter">
-
-    <div class="heading">
-
-        <span>
-            OFFICIAL NEWSLETTER
-        </span>
-
-        <h2>
-            Subscribe to Berita Huguma
-        </h2>
-
-        <p>
-
-            Stay informed with official announcements,
-            national developments, Nahdah 2034 progress,
-            government initiatives, diplomacy,
-            citizenship updates and important events
-            from the Federal Republic of Huguma.
-
-        </p>
-
-    </div>
+<section
+    class="newsletter section"
+    id="newsletter"
+>
 
 
     <div class="newsletter-card">
+
 
         <div class="newsletter-icon">
 
@@ -954,20 +1205,22 @@
         </div>
 
 
-        <h3>
-            Receive the Official Newsletter of the Republic
-        </h3>
+        <span class="section-label">
+            OFFICIAL NEWSLETTER
+        </span>
+
+
+        <h2>
+            Berita Huguma
+        </h2>
 
 
         <p>
 
-            Berita Huguma is the official publication
-            of the Federal Republic of Huguma.
-            Every edition delivers trusted news,
-            presidential announcements, government policies,
-            national celebrations, diplomatic affairs,
-            and progress towards Nahdah 2034 directly
-            to readers.
+            Receive official announcements,
+            national developments, government initiatives,
+            diplomatic affairs, citizenship updates
+            and progress towards NAHDAH 2034.
 
         </p>
 
@@ -975,27 +1228,19 @@
         <a
             href="https://hugumannews.substack.com"
             target="_blank"
-            class="button button-light"
+            rel="noopener noreferrer"
+            class="newsletter-button"
         >
-            Subscribe Now
+
+            Subscribe to Berita Huguma
+
+            <i data-lucide="arrow-up-right"></i>
+
         </a>
 
 
-        <p style="margin-top:25px;letter-spacing:1px;font-size:13px;">
-
-            BERITA HUGUMA • OFFICIAL NEWSLETTER OF
-            THE FEDERAL REPUBLIC OF HUGUMA
-
-        </p>
-
-
-        <p style="opacity:.85;font-style:italic;">
-
-            Allah Bersama Huguma
-
-        </p>
-
     </div>
+
 
 </section>
 
@@ -1008,7 +1253,7 @@
 <footer>
 
 
-    <div class="footer-grid">
+    <div class="footer-top">
 
 
         <div class="footer-brand">
@@ -1016,77 +1261,83 @@
 
             <img
                 src="./IMG_1382.png"
-                alt="Coat of Arms"
+                alt="Coat of Arms of Huguma"
             >
 
 
-            <h3>
-                Federal Republic of Huguma
-            </h3>
+            <div>
 
+                <h3>
+                    Federal Republic of Huguma
+                </h3>
 
-            <p>
-                Official Government Website
-            </p>
+                <p>
+                    Official Government Portal
+                </p>
 
-
-            <em>
-                Allah Bersama Huguma
-            </em>
-
-
-        </div>
-
-
-
-        <div>
-
-
-            <h4>
-                Government
-            </h4>
-
-
-            <a href="./government.html">
-                Government
-            </a>
-
-
-            <a href="./ministers.html">
-                Federal Ministers
-            </a>
-
-
-            <a href="./vision2034.html">
-                HUGUMA NAHDAH 2034
-            </a>
+            </div>
 
 
         </div>
 
 
 
-        <div>
+        <div class="footer-links">
 
 
-            <h4>
-                Republic
-            </h4>
+            <div>
+
+                <h4>
+                    Government
+                </h4>
+
+                <a href="./government.html">
+                    Government
+                </a>
+
+                <a href="./ministers.html">
+                    Federal Ministers
+                </a>
+
+                <a href="./vision2034.html">
+                    NAHDAH 2034
+                </a>
+
+            </div>
 
 
-            <a href="./diplomacy.html">
-                Diplomacy
-            </a>
+            <div>
+
+                <h4>
+                    Republic
+                </h4>
+
+                <a href="./about.html">
+                    About
+                </a>
+
+                <a href="./diplomacy.html">
+                    Diplomacy
+                </a>
+
+                <a href="./citizenship.html">
+                    Citizenship
+                </a>
+
+            </div>
 
 
-            <a href="./constitution.html">
-                Constitution
-            </a>
+            <div>
 
+                <h4>
+                    Legal
+                </h4>
 
-            <a href="./citizenship.html">
-                Citizenship
-            </a>
+                <a href="./Constitution.pdf">
+                    Constitution
+                </a>
+
+            </div>
 
 
         </div>
@@ -1106,7 +1357,7 @@
 
 
         <p>
-            Official Government Portal.
+            Allah Bersama Huguma
         </p>
 
 
@@ -1116,21 +1367,15 @@
 </footer>
 
 
+</main>
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
+
 
 <script>
-
-    /*
-       Load Lucide icons
-    */
 
     lucide.createIcons();
 
 </script>
-
 
 <script src="./script.js"></script>
 
