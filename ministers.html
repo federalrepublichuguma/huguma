@@ -14,7 +14,9 @@
         content="Federal Ministers of the Federal Republic of Huguma."
     >
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./IMG_1382.png">
+
+    <link rel="stylesheet" href="./style.css">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -29,38 +31,80 @@
      NAVBAR
 ===================================================== -->
 
-<header class="navbar">
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+        <a href="./index.html">
+            <img src="./IMG_1382.png" alt="Coat of Arms of Huguma" width="58" height="58">
+            <div class="brand-text">
+                <strong>HUGUMA</strong>
+                <span>Federal Republic</span>
+            </div>
+        </a>
+    </div>
 
-    <a href="index.html" class="brand">
-        <img src="IMG_1382.png" alt="Coat of Arms">
+    <div class="sidebar-label">GOVERNMENT PORTAL</div>
 
-        <div>
-            <strong>HUGUMA</strong>
-            <small>Federal Republic</small>
-        </div>
-    </a>
-
-    <button id="menuButton" class="menu-button">☰</button>
-
-    <nav id="navMenu">
-
-        <a href="index.html">Home</a>
-
-        <a href="about.html">About</a>
-
-        <a href="government.html">Government</a>
-
-        <a href="ministers.html">Ministers</a>
-
-        <a href="vision2034.html">HUGUMA NAHDAH</a>
-
-        <a href="diplomacy.html">Diplomacy</a>
-
-        <a href="citizenship.html">Citizenship</a>
-
+    <nav class="sidebar-nav">
+        <a href="./index.html" class="nav-item">
+            <i data-lucide="house"></i><span>Home</span>
+        </a>
+        <a href="./about.html" class="nav-item">
+            <i data-lucide="circle-info"></i><span>About Huguma</span>
+        </a>
+        <a href="./government.html" class="nav-item">
+            <i data-lucide="landmark"></i><span>Government</span>
+        </a>
+        <a href="./ministers.html" class="nav-item active">
+            <i data-lucide="users"></i><span>Federal Ministers</span>
+        </a>
+        <a href="./vision2034.html" class="nav-item">
+            <i data-lucide="chart-no-axes-combined"></i><span>NAHDAH 2034</span>
+        </a>
+        <a href="./diplomacy.html" class="nav-item">
+            <i data-lucide="globe-2"></i><span>Diplomacy</span>
+        </a>
+        <a href="./citizenship.html" class="nav-item">
+            <i data-lucide="id-card"></i><span>Citizenship</span>
+        </a>
     </nav>
 
-</header>
+    <div class="sidebar-bottom">
+        <button id="searchButton" class="sidebar-search" type="button">
+            <i data-lucide="search"></i><span>Search Huguma</span>
+        </button>
+
+        <div class="portal-status">
+            <span class="status-dot"></span>
+            <div>
+                <strong>Official Portal</strong>
+                <small>Federal Government</small>
+            </div>
+        </div>
+
+        <div class="sidebar-motto">Allah Bersama Huguma</div>
+    </div>
+</aside>
+
+<button id="mobileSidebarButton" class="mobile-sidebar-button" type="button" aria-label="Open navigation">
+    <i data-lucide="menu"></i>
+</button>
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+<main class="site-content">
+
+<div id="searchPanel" class="search-panel">
+    <div class="search-container">
+        <button id="closeSearch" class="close-search" type="button" aria-label="Close search">×</button>
+        <span class="search-label">HUGUMA DIGITAL PORTAL</span>
+        <h2>Search Huguma</h2>
+        <p>Search government, national information, ministries, diplomacy, citizenship and development programmes.</p>
+        <div class="search-box">
+            <i data-lucide="search"></i>
+            <input type="text" id="searchInput" placeholder="Search Huguma..." autocomplete="off">
+        </div>
+        <div id="searchResults"></div>
+    </div>
+</div>
 
 
 
@@ -403,8 +447,11 @@
         <div class="footer-brand">
 
             <img
-                src="IMG_1382.png"
+                src="./IMG_1382.png"
                 alt="Coat of Arms of Huguma"
+                width="60"
+                height="60"
+                loading="lazy"
             >
 
             <h3>
@@ -491,23 +538,15 @@
 
 </footer>
 
+</main>
+
 
 
 <!-- =====================================================
      SCRIPTS
 ===================================================== -->
 
-<script src="script.js"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-
-        if (typeof lucide !== "undefined") {
-            lucide.createIcons();
-        }
-
-    });
-</script>
+<script src="./script.js"></script>
 
 
 </body>
