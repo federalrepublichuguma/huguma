@@ -1,0 +1,2249 @@
+/* =====================================================
+   FEDERAL REPUBLIC OF HUGUMA
+   OFFICIAL GOVERNMENT PORTAL
+   SIDEBAR / NAVIGATION RAIL THEME
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue-darkest: #011a2d;
+    --blue-dark: #02263f;
+    --blue: #063d72;
+    --blue-medium: #07598a;
+    --blue-light: #0a6fa6;
+
+    --turquoise: #08aeb4;
+    --turquoise-dark: #057e93;
+    --turquoise-light: #44d6d2;
+
+    --white: #ffffff;
+    --background: #f5f9fb;
+    --background-blue: #edf8fa;
+
+    --text: #12283b;
+    --text-soft: #637484;
+
+    --border: #dce7ec;
+
+    --sidebar-width: 285px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =====================================================
+   SIDEBAR / NAVIGATION RAIL
+===================================================== */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 28px 18px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--blue-dark) 0%,
+            var(--blue) 52%,
+            var(--turquoise-dark) 100%
+        );
+
+    color: var(--white);
+
+    box-shadow:
+        5px 0 35px rgba(10, 45, 70, .12);
+}
+
+.sidebar-brand {
+    padding: 0 8px 30px;
+}
+
+.sidebar-brand a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sidebar-brand img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-text strong {
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.brand-text span {
+    margin-top: 4px;
+    font-size: 11px;
+    letter-spacing: .7px;
+    opacity: .65;
+}
+
+.sidebar-label {
+    padding: 0 16px 10px;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+    font-weight: 700;
+    opacity: .42;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.nav-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 51px;
+    gap: 13px;
+
+    padding: 0 16px;
+
+    border-radius: 13px;
+
+    color: rgba(255, 255, 255, .77);
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.nav-item svg {
+    width: 19px;
+    height: 19px;
+    stroke-width: 1.9;
+    flex-shrink: 0;
+}
+
+.nav-item:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, .09);
+    transform: translateX(3px);
+}
+
+.nav-item.active {
+    color: var(--blue);
+    background: var(--white);
+
+    box-shadow:
+        0 9px 24px rgba(0, 0, 0, .14);
+
+    font-weight: 650;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.sidebar-search {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 15px;
+
+    color: var(--white);
+
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, .075);
+
+    font: inherit;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: background .2s ease;
+}
+
+.sidebar-search:hover {
+    background: rgba(255, 255, 255, .14);
+}
+
+.sidebar-search svg {
+    width: 18px;
+}
+
+.portal-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 20px 10px 12px;
+}
+
+.status-dot {
+    display: block;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #55efbb;
+
+    box-shadow:
+        0 0 0 5px rgba(85, 239, 187, .12);
+}
+
+.portal-status strong {
+    display: block;
+    font-size: 11px;
+}
+
+.portal-status small {
+    display: block;
+    margin-top: 1px;
+
+    opacity: .5;
+
+    font-size: 9px;
+    letter-spacing: .3px;
+}
+
+.sidebar-motto {
+    padding: 8px 10px 2px;
+
+    opacity: .38;
+
+    font-size: 10px;
+    font-style: italic;
+}
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.site-content {
+    width: calc(100% - var(--sidebar-width));
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+}
+
+.mobile-sidebar-button {
+    display: none;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+/* =====================================================
+   SEARCH PANEL
+===================================================== */
+
+.search-panel {
+    position: fixed;
+    inset: 0;
+    z-index: 2500;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding-top: 90px;
+
+    background: rgba(0, 22, 38, .72);
+    backdrop-filter: blur(12px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .2s ease;
+}
+
+.search-panel.open,
+.search-panel.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-container {
+    position: relative;
+
+    width: min(680px, calc(100% - 35px));
+
+    padding: 45px;
+
+    background: var(--white);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, .25);
+}
+
+.close-search {
+    position: absolute;
+
+    top: 16px;
+    right: 19px;
+
+    width: 37px;
+    height: 37px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--background-blue);
+    color: var(--blue);
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+.close-search:hover {
+    background: var(--turquoise);
+    color: var(--white);
+}
+
+.search-label {
+    display: block;
+
+    color: var(--turquoise);
+
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.search-container h2 {
+    margin-top: 6px;
+
+    color: var(--blue-dark);
+
+    font-size: 34px;
+}
+
+.search-container > p {
+    margin-top: 8px;
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 27px;
+
+    padding: 0 17px;
+
+    min-height: 55px;
+
+    border: 1px solid var(--border);
+    border-radius: 13px;
+}
+
+.search-box:focus-within {
+    border-color: var(--turquoise);
+}
+
+.search-box svg {
+    width: 19px;
+    color: var(--turquoise);
+}
+
+.search-box input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: var(--text);
+
+    font-size: 14px;
+}
+
+#searchResults {
+    max-height: 340px;
+    overflow-y: auto;
+    margin-top: 18px;
+}
+
+.search-result {
+    display: block;
+
+    padding: 14px 16px;
+    margin-bottom: 8px;
+
+    border: 1px solid var(--border);
+    border-radius: 11px;
+
+    transition: .2s;
+}
+
+.search-result:hover {
+    border-color: var(--turquoise);
+    background: var(--background-blue);
+}
+
+.search-result strong,
+.search-result h3 {
+    display: block;
+
+    color: var(--blue);
+
+    font-size: 13px;
+}
+
+.search-result span,
+.search-result p {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+}
+
+.search-result a {
+    color: var(--turquoise-dark);
+    font-weight: 700;
+}
+
+.search-no-results,
+.no-results {
+    padding: 20px;
+
+    color: var(--text-soft);
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    position: relative;
+
+    min-height: 760px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(300px, .8fr);
+
+    align-items: center;
+    gap: 70px;
+
+    padding:
+        90px
+        clamp(45px, 7vw, 110px);
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(42, 203, 204, .15),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #effbfc 0%,
+            var(--white) 50%,
+            #f3fbfc 100%
+        );
+}
+
+.hero-decoration {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-decoration-one {
+    width: 420px;
+    height: 420px;
+
+    right: -170px;
+    bottom: -160px;
+
+    border: 70px solid rgba(11, 174, 180, .06);
+}
+
+.hero-decoration-two {
+    width: 270px;
+    height: 270px;
+
+    right: 25%;
+    top: -150px;
+
+    background: rgba(11, 174, 180, .04);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 720px;
+}
+
+.official-badge {
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 30px;
+
+    padding: 8px 12px;
+
+    background: rgba(5, 122, 145, .08);
+
+    border: 1px solid rgba(5, 122, 145, .12);
+    border-radius: 30px;
+
+    color: var(--blue-medium);
+
+    font-size: 9px;
+    font-weight: 750;
+    letter-spacing: 1.5px;
+}
+
+.official-badge span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--turquoise);
+}
+
+.hero-emblem {
+    width: 110px;
+    margin-bottom: 25px;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+
+    color: var(--turquoise);
+
+    font-size: 11px;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    color: var(--blue-dark);
+
+    font-size: clamp(47px, 5.6vw, 82px);
+
+    line-height: .98;
+    letter-spacing: -3.5px;
+    font-weight: 750;
+}
+
+.hero h1 span {
+    color: var(--turquoise);
+}
+
+.motto {
+    margin-top: 25px;
+
+    color: var(--blue);
+
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.hero-description {
+    max-width: 610px;
+
+    margin-top: 24px;
+
+    color: var(--text-soft);
+
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+
+    margin-top: 35px;
+}
+
+.button {
+    min-height: 51px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 0 22px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    transition: .2s ease;
+}
+
+.button svg {
+    width: 17px;
+}
+
+.primary-button,
+.gradient-button,
+.button-light {
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue-medium)
+        );
+
+    color: var(--white);
+
+    box-shadow:
+        0 12px 28px rgba(3, 64, 108, .18);
+}
+
+.primary-button:hover,
+.gradient-button:hover,
+.button-light:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 16px 32px rgba(3, 64, 108, .24);
+}
+
+.secondary-button,
+.button-outline {
+    color: var(--blue);
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+}
+
+.secondary-button:hover,
+.button-outline:hover {
+    border-color: var(--turquoise);
+    color: var(--turquoise);
+}
+
+.hero-side-card {
+    position: relative;
+    z-index: 2;
+
+    max-width: 420px;
+
+    padding: 18px;
+
+    background: rgba(255, 255, 255, .72);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(5, 90, 130, .12);
+    border-radius: 25px;
+
+    box-shadow:
+        0 30px 70px rgba(10, 52, 78, .12);
+}
+
+.side-card-label {
+    display: block;
+
+    padding: 5px 6px 14px;
+
+    color: var(--text-soft);
+
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.hero-side-card > img {
+    width: 100%;
+
+    border-radius: 17px;
+}
+
+.hero-side-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+    padding-top: 17px;
+}
+
+.hero-side-details div {
+    padding: 12px 10px;
+}
+
+.hero-side-details small {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--text-soft);
+
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.hero-side-details strong {
+    color: var(--blue-dark);
+    font-size: 11px;
+}
+
+/* =====================================================
+   QUICK INFORMATION
+===================================================== */
+
+.quick-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    background: var(--white);
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.info-card {
+    min-height: 125px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 30px;
+
+    background: var(--white);
+
+    border-right: 1px solid var(--border);
+}
+
+.info-card:last-child {
+    border-right: none;
+}
+
+.info-icon {
+    min-width: 45px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--background-blue);
+    color: var(--turquoise);
+
+    border-radius: 12px;
+}
+
+.info-icon svg {
+    width: 20px;
+}
+
+.info-card span,
+.info-card h3 {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--text-soft);
+
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.info-card strong,
+.info-card p {
+    color: var(--blue-dark);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
+
+.section {
+    padding:
+        105px
+        clamp(40px, 7vw, 105px);
+}
+
+.section-heading,
+.heading {
+    max-width: 660px;
+    margin-bottom: 55px;
+}
+
+.heading {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-label,
+.heading span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: var(--turquoise);
+
+    font-size: 10px;
+    letter-spacing: 2.2px;
+    font-weight: 750;
+}
+
+.section-heading h2,
+.heading h2,
+.nahdah-title h2 {
+    color: var(--blue-dark);
+
+    font-size: clamp(35px, 4vw, 52px);
+
+    line-height: 1.08;
+    letter-spacing: -1.7px;
+}
+
+.section-heading p,
+.heading p {
+    margin-top: 18px;
+
+    color: var(--text-soft);
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-grid,
+.nation-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.15fr .85fr;
+
+    gap: 28px;
+    align-items: center;
+}
+
+.about-main,
+.nation-text {
+    position: relative;
+
+    padding: 50px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+.about-number {
+    position: absolute;
+
+    top: 28px;
+    right: 34px;
+
+    color: rgba(6, 61, 114, .09);
+
+    font-size: 60px;
+    font-weight: 800;
+}
+
+.about-main h3,
+.nation-text h3 {
+    max-width: 500px;
+
+    margin-bottom: 25px;
+
+    color: var(--blue-dark);
+
+    font-size: 27px;
+}
+
+.about-main p,
+.nation-text p {
+    max-width: 600px;
+
+    margin-bottom: 17px;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 12px;
+
+    color: var(--blue);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.text-link svg {
+    width: 16px;
+}
+
+.flag-card,
+.symbol-card,
+.department,
+.government-card,
+.vision-card,
+.news-card,
+.constitution-card {
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    transition: .2s ease;
+}
+
+.flag-card {
+    background: var(--blue-dark);
+    color: var(--white);
+}
+
+.flag-image,
+.flag-container {
+    padding: 18px;
+}
+
+.flag-image img,
+.flag-container img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.flag-content,
+.card-content {
+    padding: 13px 30px 34px;
+}
+
+.flag-content span,
+.card-content span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--turquoise-light);
+
+    font-size: 9px;
+    letter-spacing: 1.8px;
+}
+
+.flag-content h3,
+.card-content h3 {
+    margin-bottom: 7px;
+
+    color: var(--white);
+
+    font-size: 24px;
+}
+
+.flag-content p,
+.card-content p {
+    color: rgba(255, 255, 255, .65);
+
+    font-size: 13px;
+}
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-header {
+    padding:
+        95px
+        clamp(40px, 7vw, 105px);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue-dark),
+            var(--blue),
+            var(--turquoise-dark)
+        );
+
+    color: var(--white);
+}
+
+.page-header span {
+    color: var(--turquoise-light);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.page-header h1 {
+    margin-top: 10px;
+
+    color: var(--white);
+
+    font-size: clamp(42px, 5vw, 64px);
+    letter-spacing: -2px;
+}
+
+.page-header p {
+    max-width: 720px;
+
+    margin-top: 20px;
+
+    color: rgba(255, 255, 255, .78);
+}
+
+/* =====================================================
+   GOVERNMENT
+===================================================== */
+
+.government,
+.government-section {
+    padding:
+        100px
+        clamp(40px, 7vw, 105px);
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--blue-dark),
+            var(--blue) 72%,
+            #075d76
+        );
+}
+
+.heading.light span,
+.light-label {
+    color: var(--turquoise-light);
+}
+
+.heading.light h2,
+.government-header h2 {
+    color: var(--white);
+}
+
+.heading.light p {
+    color: rgba(255, 255, 255, .72);
+}
+
+.government-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+
+    margin-bottom: 52px;
+}
+
+.government-header h2 {
+    font-size: clamp(36px, 4vw, 52px);
+    letter-spacing: -1.5px;
+}
+
+.government-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--white);
+
+    font-size: 12px;
+
+    opacity: .75;
+}
+
+.government-link:hover {
+    opacity: 1;
+}
+
+.government-link svg {
+    width: 16px;
+}
+
+.government-grid {
+    max-width: 1200px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    margin: auto;
+}
+
+.government-card {
+    position: relative;
+
+    min-height: 275px;
+
+    padding: 29px;
+
+    background: rgba(255, 255, 255, .055);
+
+    border: 1px solid rgba(255, 255, 255, .11);
+    border-radius: 17px;
+}
+
+.government-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(70, 222, 216, .45);
+
+    background: rgba(255, 255, 255, .09);
+}
+
+.office-number {
+    position: absolute;
+
+    top: 20px;
+    right: 24px;
+
+    color: rgba(255, 255, 255, .14);
+
+    font-size: 32px;
+    font-weight: 750;
+}
+
+.office-icon,
+.department-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 27px;
+
+    color: var(--turquoise-light);
+
+    border-radius: 11px;
+
+    background: rgba(40, 204, 204, .11);
+}
+
+.office-icon svg,
+.department-icon svg {
+    width: 20px;
+}
+
+.government-card small {
+    color: var(--turquoise-light);
+
+    font-size: 8px;
+    letter-spacing: 1.4px;
+}
+
+.government-card h3 {
+    margin-top: 7px;
+
+    color: var(--white);
+
+    font-size: 19px;
+}
+
+.government-card strong {
+    display: block;
+
+    margin-top: 4px;
+
+    color: rgba(255, 255, 255, .72);
+
+    font-size: 13px;
+}
+
+.government-card p {
+    margin-top: 17px;
+
+    color: rgba(255, 255, 255, .58);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* =====================================================
+   DEPARTMENTS / EXCO
+===================================================== */
+
+.department-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.department {
+    padding: 28px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.department:hover {
+    transform: translateY(-5px);
+    border-color: var(--turquoise);
+}
+
+.department-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.department-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.department h3 {
+    margin-bottom: 6px;
+
+    color: var(--blue-dark);
+
+    font-size: 1.3rem;
+}
+
+.department h4 {
+    margin-bottom: 15px;
+
+    color: var(--turquoise-dark);
+
+    font-size: .95rem;
+}
+
+.department p {
+    margin-bottom: 12px;
+
+    color: var(--text-soft);
+
+    font-size: .95rem;
+}
+
+/* =====================================================
+   NAHDAH / VISION 2034
+===================================================== */
+
+.vision,
+.nahdah-section {
+    background: #f8fbfc;
+}
+
+.nahdah-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+
+    margin-bottom: 55px;
+}
+
+.nahdah-title h2 span {
+    color: var(--turquoise);
+}
+
+.nahdah-title > p {
+    max-width: 420px;
+
+    padding-bottom: 4px;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.vision-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.vision-card {
+    position: relative;
+
+    min-height: 260px;
+
+    padding: 32px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 17px;
+}
+
+.vision-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 35px rgba(5, 57, 84, .07);
+}
+
+.vision-card > span {
+    position: absolute;
+
+    right: 27px;
+    top: 22px;
+
+    color: rgba(5, 60, 100, .12);
+
+    font-size: 29px;
+    font-weight: 800;
+}
+
+.vision-card > svg {
+    width: 30px;
+    height: 30px;
+
+    margin-bottom: 35px;
+
+    color: var(--turquoise);
+}
+
+.vision-card h3 {
+    margin-bottom: 11px;
+
+    color: var(--blue-dark);
+
+    font-size: 19px;
+}
+
+.vision-card p {
+    color: var(--text-soft);
+
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+.nahdah-button {
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 28px;
+
+    padding: 13px 18px;
+
+    color: var(--white);
+
+    background: var(--blue);
+
+    border-radius: 11px;
+
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.nahdah-button svg {
+    width: 16px;
+}
+
+/* =====================================================
+   ROADMAP TABLE
+===================================================== */
+
+.roadmap {
+    max-width: 1000px;
+
+    margin: 60px auto 0;
+
+    padding: 30px;
+
+    overflow-x: auto;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.roadmap h3 {
+    margin-bottom: 20px;
+
+    color: var(--blue-dark);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px;
+
+    text-align: left;
+
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background: var(--blue);
+    color: var(--white);
+}
+
+td {
+    color: var(--text);
+}
+
+/* =====================================================
+   DIPLOMACY
+===================================================== */
+
+.diplomacy {
+    padding:
+        90px
+        clamp(40px, 7vw, 105px);
+
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 50px;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue-dark),
+            var(--blue),
+            var(--turquoise-dark)
+        );
+
+    color: var(--white);
+}
+
+.diplomacy-content span {
+    color: var(--turquoise-light);
+
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.diplomacy-content h2 {
+    margin: 15px 0;
+
+    color: var(--white);
+
+    font-size: 3rem;
+}
+
+.diplomacy-content p {
+    margin-bottom: 18px;
+
+    color: rgba(255, 255, 255, .78);
+}
+
+.diplomacy-content a:not(.button) {
+    color: var(--turquoise-light);
+    text-decoration: underline;
+}
+
+.globe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--turquoise);
+}
+
+.globe svg {
+    width: 120px;
+    height: 120px;
+}
+
+/* =====================================================
+   CITIZENSHIP
+===================================================== */
+
+.citizenship,
+.citizenship-section {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 30px;
+
+    margin:
+        0
+        clamp(40px, 7vw, 105px);
+
+    padding: 45px 50px;
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            130deg,
+            #087b91,
+            var(--turquoise)
+        );
+
+    border-radius: 22px;
+}
+
+.citizenship-icon {
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: rgba(255, 255, 255, .13);
+}
+
+.citizenship-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.citizenship span,
+.citizenship-content span {
+    color: rgba(255, 255, 255, .64);
+
+    font-size: 9px;
+    letter-spacing: 1.8px;
+}
+
+.citizenship h2,
+.citizenship-content h2 {
+    margin: 5px 0 6px;
+
+    color: var(--white);
+
+    font-size: 30px;
+}
+
+.citizenship p,
+.citizenship-content p {
+    color: rgba(255, 255, 255, .76);
+
+    font-size: 13px;
+}
+
+.citizenship-list {
+    list-style: none;
+
+    margin: 25px 0;
+}
+
+.citizenship-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-bottom: 15px;
+
+    color: var(--white);
+}
+
+.citizenship-list svg {
+    width: 22px;
+    height: 22px;
+
+    color: var(--turquoise-light);
+}
+
+.citizenship-button,
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 13px 18px;
+
+    color: var(--blue);
+
+    background: var(--white);
+
+    border-radius: 11px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.citizenship-button svg {
+    width: 15px;
+}
+
+/* =====================================================
+   NEWS
+===================================================== */
+
+.news-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.news-card {
+    overflow: hidden;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--turquoise);
+}
+
+.news-image {
+    height: 180px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue-dark),
+            var(--blue)
+        );
+}
+
+.news-image img {
+    max-height: 120px;
+    object-fit: contain;
+}
+
+.news-content {
+    padding: 24px;
+}
+
+.news-category {
+    color: var(--turquoise-dark);
+
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.news-date {
+    display: block;
+
+    margin: 8px 0 14px;
+
+    color: var(--text-soft);
+}
+
+.news-content h3 {
+    margin-bottom: 10px;
+
+    color: var(--blue-dark);
+}
+
+.news-content p {
+    color: var(--text-soft);
+}
+
+.news-link {
+    color: var(--turquoise-dark);
+    font-weight: 700;
+}
+
+/* =====================================================
+   NATIONAL SYMBOLS
+===================================================== */
+
+.symbols-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.symbol-flag,
+.symbol-coat {
+    min-height: 260px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue-dark),
+            var(--blue)
+        );
+
+    border-radius: 18px;
+}
+
+/* =====================================================
+   BERITA HUGUMA / NEWSLETTER
+===================================================== */
+
+.newsletter {
+    padding:
+        105px
+        clamp(40px, 7vw, 105px);
+
+    background: var(--white);
+}
+
+.newsletter-card {
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 70px 60px;
+
+    text-align: center;
+
+    background: var(--background-blue);
+
+    border: 1px solid #d8eeee;
+    border-radius: 24px;
+}
+
+.newsletter-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 22px;
+
+    color: var(--turquoise);
+
+    background: var(--white);
+
+    border-radius: 15px;
+}
+
+.newsletter-icon svg {
+    width: 27px;
+    height: 27px;
+}
+
+.newsletter-card h2,
+.newsletter-card h3 {
+    margin-bottom: 15px;
+
+    color: var(--blue-dark);
+
+    font-size: 38px;
+}
+
+.newsletter-card > p {
+    max-width: 620px;
+
+    margin: 0 auto 27px;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.newsletter-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 14px 20px;
+
+    color: var(--white);
+
+    background: var(--blue);
+
+    border-radius: 11px;
+
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.newsletter-button svg {
+    width: 15px;
+}
+
+.newsletter-footer {
+    margin-top: 30px;
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+    letter-spacing: 1.5px;
+}
+
+.newsletter-motto {
+    margin-top: 10px;
+
+    color: var(--blue);
+
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding:
+        60px
+        clamp(40px, 7vw, 105px)
+        25px;
+
+    color: var(--white);
+
+    background: #011c30;
+}
+
+.footer-grid,
+.footer-top {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+
+    padding-bottom: 50px;
+}
+
+.footer-top {
+    grid-template-columns: 1fr auto;
+}
+
+.footer-brand {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.footer-brand img {
+    width: 60px;
+}
+
+.footer-brand h3 {
+    color: var(--white);
+
+    font-size: 16px;
+}
+
+.footer-brand p,
+.footer-brand em {
+    margin-top: 3px;
+
+    color: rgba(255, 255, 255, .45);
+
+    font-size: 11px;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 55px;
+}
+
+footer h4,
+.footer-links h4 {
+    margin-bottom: 13px;
+
+    color: var(--turquoise-light);
+
+    font-size: 10px;
+    letter-spacing: 1.2px;
+}
+
+footer a,
+.footer-links a {
+    display: block;
+
+    margin: 8px 0;
+
+    color: rgba(255, 255, 255, .55);
+
+    font-size: 11px;
+}
+
+footer a:hover,
+.footer-links a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255, 255, 255, .08);
+
+    color: rgba(255, 255, 255, .33);
+
+    font-size: 9px;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1180px) {
+
+    .government-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .vision-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .info-card {
+        border-bottom: 1px solid var(--border);
+    }
+}
+
+/* =====================================================
+   MOBILE SIDEBAR
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 285px;
+
+        transform: translateX(-105%);
+
+        transition: transform .3s ease;
+
+        box-shadow:
+            12px 0 45px rgba(0, 0, 0, .2);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .site-content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .mobile-sidebar-button {
+        position: fixed;
+
+        top: 17px;
+        left: 17px;
+
+        z-index: 2000;
+
+        width: 48px;
+        height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: none;
+        border-radius: 13px;
+
+        color: var(--white);
+
+        background: var(--blue);
+
+        box-shadow:
+            0 8px 25px rgba(0, 0, 0, .18);
+
+        cursor: pointer;
+    }
+
+    .mobile-sidebar-button svg {
+        width: 21px;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 900;
+
+        background: rgba(0, 15, 27, .56);
+
+        backdrop-filter: blur(3px);
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        min-height: auto;
+
+        gap: 55px;
+
+        padding:
+            110px 35px 75px;
+    }
+
+    .hero-side-card {
+        max-width: 520px;
+    }
+
+    .about-grid,
+    .nation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .government-grid,
+    .department-grid,
+    .vision-grid,
+    .symbols-grid,
+    .news-grid,
+    .diplomacy {
+        grid-template-columns: 1fr;
+    }
+
+    .nahdah-title {
+        display: block;
+    }
+
+    .nahdah-title > p {
+        margin-top: 25px;
+    }
+
+    .citizenship,
+    .citizenship-section {
+        grid-template-columns: auto 1fr;
+    }
+
+    .citizenship-button {
+        grid-column: 1 / -1;
+        width: fit-content;
+    }
+
+    .footer-grid,
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+        margin-top: 45px;
+    }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 620px) {
+
+    .section,
+    .government,
+    .government-section {
+        padding:
+            80px 22px;
+    }
+
+    .hero {
+        padding:
+            105px 22px 65px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        letter-spacing: -2.3px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        display: grid;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .hero-side-details {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-info {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card {
+        min-height: 100px;
+        border-right: none;
+    }
+
+    .government-grid,
+    .vision-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .government-header {
+        display: block;
+    }
+
+    .government-link {
+        margin-top: 20px;
+    }
+
+    .about-main,
+    .nation-text {
+        padding: 37px 27px;
+    }
+
+    .citizenship,
+    .citizenship-section {
+        grid-template-columns: 1fr;
+
+        margin: 0 22px;
+
+        padding: 35px 27px;
+    }
+
+    .newsletter-card {
+        padding: 55px 25px;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+    .search-panel {
+        padding: 70px 12px 20px;
+    }
+
+    .search-container {
+        padding: 40px 25px 30px;
+    }
+
+    .search-container h2 {
+        font-size: 30px;
+    }
+}
