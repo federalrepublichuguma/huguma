@@ -13,9 +13,16 @@
     content="Diplomatic Relations of the Federal Republic of Huguma"
 >
 
-<link rel="icon" type="image/png" href="./IMG_1382.png">
+<link
+    rel="icon"
+    type="image/png"
+    href="./IMG_1382.png"
+>
 
-<link rel="stylesheet" href="./style.css">
+<link
+    rel="stylesheet"
+    href="./style.css"
+>
 
 <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -23,89 +30,695 @@
 
 <body>
 
+<!-- =====================================================
+     SIDEBAR / NAVIGATION RAIL
+===================================================== -->
 
-<header class="navbar">
+<aside
+    class="sidebar"
+    id="sidebar"
+>
 
-    <a href="index.html" class="brand">
-        <img src="IMG_1382.png" alt="Coat of Arms">
+    <div class="sidebar-brand">
 
-        <div>
-            <strong>HUGUMA</strong>
-            <small>Federal Republic</small>
-        </div>
-    </a>
+        <a href="./index.html">
 
-    <button id="menuButton" class="menu-button">☰</button>
+            <img
+                src="./IMG_1382.png"
+                alt="Coat of Arms of Huguma"
+                width="58"
+                height="58"
+            >
 
-    <nav id="navMenu">
+            <div class="brand-text">
 
-        <a href="index.html">Home</a>
+                <strong>HUGUMA</strong>
 
-        <a href="about.html">About</a>
+                <span>
+                    Federal Republic
+                </span>
 
-        <a href="government.html">Government</a>
+            </div>
 
-        <a href="ministers.html">Federal Ministers</a>
+        </a>
 
-        <a href="vision2034.html">HUGUMA NAHDAH</a>
+    </div>
 
-        <a href="diplomacy.html">Diplomacy</a>
+    <div class="sidebar-label">
+        GOVERNMENT PORTAL
+    </div>
 
-        <a href="citizenship.html">Citizenship</a>
+    <nav class="sidebar-nav">
 
+        <a href="./index.html" class="nav-item">
+            <i data-lucide="house"></i>
+            <span>Home</span>
+        </a>
+
+        <a href="./about.html" class="nav-item">
+            <i data-lucide="circle-info"></i>
+            <span>About Huguma</span>
+        </a>
+
+        <a href="./government.html" class="nav-item">
+            <i data-lucide="landmark"></i>
+            <span>Government</span>
+        </a>
+
+        <a href="./ministers.html" class="nav-item">
+            <i data-lucide="users"></i>
+            <span>Federal Ministers</span>
+        </a>
+
+        <a href="./vision2034.html" class="nav-item">
+            <i data-lucide="chart-no-axes-combined"></i>
+            <span>NAHDAH 2034</span>
+        </a>
+
+        <a href="./diplomacy.html" class="nav-item active">
+            <i data-lucide="globe-2"></i>
+            <span>Diplomacy</span>
+        </a>
+
+        <a href="./citizenship.html" class="nav-item">
+            <i data-lucide="id-card"></i>
+            <span>Citizenship</span>
+        </a>
 
     </nav>
 
-</header>
+    <div class="sidebar-bottom">
 
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <img
-            src="./IMG_1382.png"
-            class="hero-emblem"
-            alt="Coat of Arms"
+        <button
+            id="searchButton"
+            class="sidebar-search"
+            type="button"
         >
+            <i data-lucide="search"></i>
+            <span>Search Huguma</span>
+        </button>
 
-        <p class="eyebrow">
-            FOREIGN AFFAIRS
+        <div class="portal-status">
+
+            <span class="status-dot"></span>
+
+            <div>
+
+                <strong>
+                    Official Portal
+                </strong>
+
+                <small>
+                    Federal Government
+                </small>
+
+            </div>
+
+        </div>
+
+        <div class="sidebar-motto">
+            Allah Bersama Huguma
+        </div>
+
+    </div>
+
+</aside>
+
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+
+<button
+    id="mobileSidebarButton"
+    class="mobile-sidebar-button"
+    type="button"
+    aria-label="Open navigation"
+>
+    <i data-lucide="menu"></i>
+</button>
+
+<div
+    id="sidebarOverlay"
+    class="sidebar-overlay"
+></div>
+
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+
+<main class="site-content">
+
+<!-- =====================================================
+     SEARCH PANEL
+===================================================== -->
+
+<div
+    id="searchPanel"
+    class="search-panel"
+>
+
+    <div class="search-container">
+
+        <button
+            id="closeSearch"
+            class="close-search"
+            type="button"
+            aria-label="Close search"
+        >
+            ×
+        </button>
+
+        <span class="search-label">
+            HUGUMA DIGITAL PORTAL
+        </span>
+
+        <h2>
+            Search Huguma
+        </h2>
+
+        <p>
+            Search government, national information,
+            ministries, diplomacy, citizenship and
+            development programmes.
         </p>
 
-        <h1>
-            Diplomatic<br>
-            Relations
-        </h1>
+        <div class="search-box">
 
-        <p class="motto">
+            <i data-lucide="search"></i>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Huguma..."
+                autocomplete="off"
+            >
+
+        </div>
+
+        <div id="searchResults"></div>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<section class="page-header">
+
+    <span>
+        FOREIGN AFFAIRS
+    </span>
+
+    <h1>
+        Diplomatic Relations
+    </h1>
+
+    <p>
+        The Federal Republic of Huguma welcomes peaceful
+        friendship, dialogue, cooperation and diplomatic
+        relations with communities around the world.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a
+            href="mailto:infohuguman@gmail.com"
+            class="button button-light"
+        >
+            <i data-lucide="mail"></i>
+            Contact Foreign Affairs
+        </a>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     DIPLOMACY OVERVIEW
+===================================================== -->
+
+<section class="section">
+
+    <div class="heading">
+
+        <span>
+            INTERNATIONAL RELATIONS
+        </span>
+
+        <h2>
+            Foreign Affairs of Huguma
+        </h2>
+
+        <p>
+            Huguma seeks to maintain respectful and peaceful
+            relations through dialogue, mutual recognition,
+            cooperation and diplomatic engagement.
+        </p>
+
+    </div>
+
+    <div class="nation-grid">
+
+        <div class="nation-text">
+
+            <h3>
+                Peaceful Diplomacy
+            </h3>
+
+            <p>
+                The Federal Republic of Huguma supports
+                constructive dialogue and friendly relations
+                with micronations and communities around the world.
+            </p>
+
+            <p>
+                Diplomatic relations may include mutual recognition,
+                formal communications, treaties, consular relations,
+                international cooperation and participation in
+                intermicronational organisations.
+            </p>
+
+            <p>
+                Foreign affairs are coordinated by the
+                <strong>Minister of Foreign Affairs</strong>
+                on behalf of the Federal Government.
+            </p>
+
+        </div>
+
+        <div class="symbol-card">
+
+            <div class="symbol-coat">
+
+                <i
+                    data-lucide="globe-2"
+                    style="width:120px;height:120px;color:#44d6d2;"
+                ></i>
+
+            </div>
+
+            <div class="card-content">
+
+                <span>
+                    FOREIGN AFFAIRS
+                </span>
+
+                <h3>
+                    International Friendship
+                </h3>
+
+                <p>
+                    Peace, dialogue and cooperation form
+                    the basis of Huguma's diplomatic outlook.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     DIPLOMATIC PRINCIPLES
+===================================================== -->
+
+<section class="section vision">
+
+    <div class="heading">
+
+        <span>
+            DIPLOMATIC PRINCIPLES
+        </span>
+
+        <h2>
+            Our Foreign Policy
+        </h2>
+
+        <p>
+            Huguma's diplomacy is guided by peaceful engagement,
+            mutual respect and constructive international cooperation.
+        </p>
+
+    </div>
+
+    <div class="vision-grid">
+
+        <div class="vision-card">
+
+            <span>01</span>
+
+            <i data-lucide="handshake"></i>
+
+            <h3>
+                Mutual Recognition
+            </h3>
+
+            <p>
+                Establish respectful diplomatic relations
+                through mutual recognition and formal dialogue.
+            </p>
+
+        </div>
+
+        <div class="vision-card">
+
+            <span>02</span>
+
+            <i data-lucide="message-circle"></i>
+
+            <h3>
+                Dialogue
+            </h3>
+
+            <p>
+                Resolve differences through communication,
+                diplomacy and peaceful discussion.
+            </p>
+
+        </div>
+
+        <div class="vision-card">
+
+            <span>03</span>
+
+            <i data-lucide="users"></i>
+
+            <h3>
+                Cooperation
+            </h3>
+
+            <p>
+                Encourage joint projects, exchanges
+                and international cooperation.
+            </p>
+
+        </div>
+
+        <div class="vision-card">
+
+            <span>04</span>
+
+            <i data-lucide="scale"></i>
+
+            <h3>
+                Mutual Respect
+            </h3>
+
+            <p>
+                Maintain respectful relations based on
+                equality and responsible diplomacy.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     FOREIGN AFFAIRS
+===================================================== -->
+
+<section class="diplomacy">
+
+    <div class="diplomacy-content">
+
+        <span>
+            MINISTRY OF FOREIGN AFFAIRS
+        </span>
+
+        <h2>
+            Diplomatic Contact
+        </h2>
+
+        <p>
+            Governments, micronations, organisations and
+            representatives interested in establishing
+            diplomatic relations with Huguma may contact
+            the Federal Republic through its official
+            foreign affairs channel.
+        </p>
+
+        <p>
+            Official diplomatic correspondence:
+            <a href="mailto:infohuguman@gmail.com">
+                infohuguman@gmail.com
+            </a>
+        </p>
+
+        <a
+            href="mailto:infohuguman@gmail.com"
+            class="button button-light"
+        >
+            <i data-lucide="mail"></i>
+            Send Diplomatic Message
+        </a>
+
+    </div>
+
+    <div class="globe">
+
+        <i data-lucide="globe-2"></i>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     DIPLOMATIC SERVICES
+===================================================== -->
+
+<section class="section">
+
+    <div class="heading">
+
+        <span>
+            FOREIGN AFFAIRS
+        </span>
+
+        <h2>
+            Diplomatic Activities
+        </h2>
+
+    </div>
+
+    <div class="department-grid">
+
+        <div class="department">
+
+            <div class="department-icon">
+                <i data-lucide="file-signature"></i>
+            </div>
+
+            <h3>
+                Treaties
+            </h3>
+
+            <p>
+                Formal agreements may be concluded
+                between Huguma and its diplomatic partners.
+            </p>
+
+        </div>
+
+        <div class="department">
+
+            <div class="department-icon">
+                <i data-lucide="landmark"></i>
+            </div>
+
+            <h3>
+                Diplomatic Missions
+            </h3>
+
+            <p>
+                Huguma may establish embassies,
+                consulates and other diplomatic missions.
+            </p>
+
+        </div>
+
+        <div class="department">
+
+            <div class="department-icon">
+                <i data-lucide="network"></i>
+            </div>
+
+            <h3>
+                International Organisations
+            </h3>
+
+            <p>
+                The Republic may participate in
+                international and intermicronational organisations.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="citizenship">
+
+    <div class="citizenship-icon">
+        <i data-lucide="mail"></i>
+    </div>
+
+    <div>
+
+        <span>
+            DIPLOMATIC RELATIONS
+        </span>
+
+        <h2>
+            Contact Huguma
+        </h2>
+
+        <p>
+            Interested in diplomatic relations with
+            the Federal Republic of Huguma?
+        </p>
+
+    </div>
+
+    <a
+        href="mailto:infohuguman@gmail.com"
+        class="citizenship-button"
+    >
+        Contact Foreign Affairs
+        <i data-lucide="arrow-right"></i>
+    </a>
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+
+            <img
+                src="./IMG_1382.png"
+                alt="Coat of Arms of Huguma"
+                width="60"
+                height="60"
+                loading="lazy"
+            >
+
+            <div>
+
+                <h3>
+                    Federal Republic of Huguma
+                </h3>
+
+                <p>
+                    Official Government Portal
+                </p>
+
+                <em>
+                    Allah Bersama Huguma
+                </em>
+
+            </div>
+
+        </div>
+
+        <div class="footer-links">
+
+            <div>
+
+                <h4>
+                    Government
+                </h4>
+
+                <a href="./government.html">
+                    Government
+                </a>
+
+                <a href="./ministers.html">
+                    Federal Ministers
+                </a>
+
+                <a href="./vision2034.html">
+                    NAHDAH 2034
+                </a>
+
+            </div>
+
+            <div>
+
+                <h4>
+                    Republic
+                </h4>
+
+                <a href="./about.html">
+                    About
+                </a>
+
+                <a href="./diplomacy.html">
+                    Diplomacy
+                </a>
+
+                <a href="./citizenship.html">
+                    Citizenship
+                </a>
+
+            </div>
+
+            <div>
+
+                <h4>
+                    Contact
+                </h4>
+
+                <a href="mailto:infohuguman@gmail.com">
+                    Foreign Affairs
+                </a>
+
+                <a href="./constitution.html">
+                    Constitution
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Federal Republic of Huguma.
+            All Rights Reserved.
+        </p>
+
+        <p>
             Allah Bersama Huguma
         </p>
 
-        <p class="hero-description">
+    </div>
 
-            The Federal Republic of Huguma welcomes
-            peaceful friendship, dialogue, cooperation
-            and diplomatic relations with communities
-            around the world.
+</footer>
 
-        </p>
+</main>
 
+<!-- Lightweight setup: no animation framework, no video,
+     no background media and only one local JS file. -->
+<script src="./script.js"></script>
 
-        <div class="hero-buttons">
+</body>
 
-            <a
-                href="mailto:infohuguman@gmail.com"
-                class="button button-light"
-            >
-
-                <i data-lucide="mail"></i>
-
-                Contact Foreign Affairs
-
-            </a>
-
-        </div>
+</html>
